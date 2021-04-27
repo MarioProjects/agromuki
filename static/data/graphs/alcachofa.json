@@ -1,0 +1,131 @@
+{
+    "volumen_alcachofas_nacionales":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            "datasets": [
+                {
+                    "label": "2018",
+                    "data": [8463.51, 9675.8, 12808.06, 12990.27, 7953.91, 2915.53, 1264.63, 555.63, 515.75, 844.7, 1547.91, 4510.1],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2019",
+                    "data": [9609.03, 11879.87, 12314.1, 8982.37, 6753.87, 2393.5, 840.91, 367.69, 537.34, 1196.02, 2364.7, 3690.16],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2020",
+                    "data": [7956.42, 12687.5, 10850.68, 11039.91, 8275.98, 1744.45],
+                    "borderColor": "rgba(60, 186, 159, 0.7)",
+                    "backgroundColor": "rgba(60, 186, 159, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Volumen (miles de kg)"
+                    }
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "penetracion_alcachofas_nacionales":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            "datasets": [
+                {
+                    "label": "2018",
+                    "data": [26.25, 27.86, 33.55, 33.05, 24.51, 13.25, 5.34, 2.84, 3.57, 4.93, 7.72, 16.19],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2019",
+                    "data": [28.44, 31.71, 34.47, 27.61, 22.97, 11.54, 3.01, 2.78, 2.95, 7.26, 10.9, 15.14],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2020",
+                    "data": [25.82, 32.33, 30.81, 30.41, 25.7, 10.11],
+                    "borderColor": "rgba(60, 186, 159, 0.7)",
+                    "backgroundColor": "rgba(60, 186, 159, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Penetración (%)"
+                    },
+                    "ticks": {
+                        "min": 0,
+                        "max": 40
+                    }
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "alcachofas_exportacion_importacion":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero - 2017", "Febrero - 2017", "Marzo - 2017", "Abril - 2017", "Mayo - 2017", "Junio - 2017", "Julio - 2017", "Agosto - 2017", "Septiembre - 2017", "Octubre - 2017", "Noviembre - 2017", "Diciembre - 2017", "Enero - 2018", "Febrero - 2018", "Marzo - 2018", "Abril - 2018", "Mayo - 2018", "Junio - 2018", "Julio - 2018", "Agosto - 2018", "Septiembre - 2018", "Octubre - 2018", "Noviembre - 2018", "Diciembre - 2018", "Enero - 2019", "Febrero - 2019", "Marzo - 2019", "Abril - 2019", "Mayo - 2019", "Junio - 2019", "Julio - 2019", "Agosto - 2019", "Septiembre - 2019", "Octubre - 2019", "Noviembre - 2019", "Diciembre - 2019", "Enero - 2020", "Febrero - 2020", "Marzo - 2020", "Abril - 2020", "Mayo - 2020", "Junio - 2020", "Julio - 2020", "Agosto - 2020", "Septiembre - 2020", "Octubre - 2020", "Noviembre - 2020", "Diciembre - 2020"],
+            "datasets": [
+                {
+                    "label": "Exportaciones",
+                    "data": [2074255, 2918040, 3932126, 1945003, 777108, 381168, 33781, 9082, 9673, 121976, 810595, 1375955, 1813730, 2609193, 3118219, 2935592, 1417753, 133655, 33347, 7720, 7403, 120955, 128028, 1437084, 2644203, 3582974, 3727767, 2291339, 1445753, 664589, 21371, 10050, 15958, 277368, 393729, 1474609, 2034106, 2561256, 3132870, 1948707, 324872, 38823, 54041, 6754, 47008, 390350, 1131018, 2639794],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "Importaciones",
+                    "data": [3374, 5693, 15501, 11738, 59331, 21255, 4611, 160694, 310439, 87547, 6175, 37396, 9556, 4546, 5732, 3357, 4873, 2010, 130023, 178850, 222197, 185983, 8879, 5301, 6156, 3890, 9870, 7143, 5876, 13710, 65178, 202168, 231055, 215734, 81654, 68288, 19919, 121323, 15002, 59, 3036, 4646, 8985, 3386, 19386, 2785, 3235, 12563],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Fecha"
+                    }
+                }]
+            }
+        }
+    }
+
+}

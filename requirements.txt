@@ -1,0 +1,10 @@
+wheel
+setuptools
+gunicorn
+fastapi
+aiofiles
+jinja2
+uvicorn
+uvloop
+httptools
+odfpy

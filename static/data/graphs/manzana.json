@@ -1,0 +1,131 @@
+{
+    "volumen_manzanas_nacionales":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            "datasets": [
+                {
+                    "label": "2018",
+                    "data": [39451.08, 37806.15, 44012.83, 43615.94, 39988.74, 28131.23, 20574.59, 18246.23, 32713.98, 46714.98, 46056.3, 34623.41],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2019",
+                    "data": [40580.86, 40297.8, 46754.61, 43075.84, 39935.02, 28734.18, 24570.64, 22128.57, 32013.49, 44647.66, 40481.79, 35911.54],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2020",
+                    "data": [43451.19, 43693.23, 52382.0, 59827.55, 51341.73, 34910.0, 25733.46, 25307.8, 36432.66, 51560.58, 43081.7],
+                    "borderColor": "rgba(60, 186, 159, 0.7)",
+                    "backgroundColor": "rgba(60, 186, 159, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Volumen (miles de kg)"
+                    },
+                    "ticks": {
+                        "min": 15000,
+                        "max": 65000
+                    }
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "penetracion_manzanas_nacionales":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            "datasets": [
+                {
+                    "label": "2018",
+                    "data": [65.3, 64.21, 67.94, 69.55, 67.14, 57.27, 48.87, 43.2, 56.71, 64.39, 64.42, 61.42],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2019",
+                    "data": [66.63, 66.93, 69.08, 70.04, 66.65, 57.8, 51.67, 46.68, 58.91, 65.1, 65.84, 61.01],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2020",
+                    "data": [68.19, 69.22, 76.29, 79.13, 74.84, 62.53],
+                    "borderColor": "rgba(60, 186, 159, 0.7)",
+                    "backgroundColor": "rgba(60, 186, 159, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Penetración (%)"
+                    }
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "manzanas_exportacion_importacion":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero - 2017", "Febrero - 2017", "Marzo - 2017", "Abril - 2017", "Mayo - 2017", "Junio - 2017", "Julio - 2017", "Agosto - 2017", "Septiembre - 2017", "Octubre - 2017", "Noviembre - 2017", "Diciembre - 2017", "Enero - 2018", "Febrero - 2018", "Marzo - 2018", "Abril - 2018", "Mayo - 2018", "Junio - 2018", "Julio - 2018", "Agosto - 2018", "Septiembre - 2018", "Octubre - 2018", "Noviembre - 2018", "Diciembre - 2018", "Enero - 2019", "Febrero - 2019", "Marzo - 2019", "Abril - 2019", "Mayo - 2019", "Junio - 2019", "Julio - 2019", "Agosto - 2019", "Septiembre - 2019", "Octubre - 2019", "Noviembre - 2019", "Diciembre - 2019", "Enero - 2020", "Febrero - 2020", "Marzo - 2020", "Abril - 2020", "Mayo - 2020", "Junio - 2020", "Julio - 2020", "Agosto - 2020", "Septiembre - 2020", "Octubre - 2020", "Noviembre - 2020", "Diciembre - 2020"],
+            "datasets": [
+                {
+                    "label": "Exportaciones",
+                    "data": [6443652, 5463965, 5414748, 4658390, 5912616, 4167751, 3798908, 6713086, 10388349, 10316255, 12405521, 9165391, 7796147, 8224902, 7777901, 6813672, 7285444, 6325672, 5152671, 5824077, 8230378, 7260622, 9505178, 7843836, 7022259, 6309025, 5817016, 6526909, 6946028, 3966086, 3517181, 5882035, 9952172, 13495710, 11165742, 10247898, 12078548, 9812101, 9355171, 8129500, 7262304, 5401015, 6029943, 5902266, 7537655, 9718035, 10285230, 8785808],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "Importaciones",
+                    "data": [10762280, 13689033, 17118761, 16163139, 18129345, 13320259, 11330545, 6656534, 8927484, 10139475, 10990761, 12278846, 12241121, 12167660, 13884469, 15395080, 16907101, 14427253, 13555261, 7597247, 6124414, 10808173, 12350489, 11525030, 10680636, 13252615, 13467014, 13229657, 16302539, 11131058, 10807281, 6090447, 7569849, 9601967, 11412465, 13035155, 11450257, 13179845, 13961298, 17232170, 14402104, 12189389, 10798884, 6936656, 10544426, 13017013, 13920687, 14188587],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Fecha"
+                    }
+                }]
+            }
+        }
+    }
+
+}

@@ -1,0 +1,245 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "verduras/base_hortaliza_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_hortaliza_titulo %}Patata{% endblock %}
+{% block nombre_hortaliza %}Patata{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_hortaliza %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Patata</h3>
+            <p class="mt-4">
+                La patata fue uno de los primeros cultivos americanos que los españoles introdujeron en Europa
+                y cambio para siempre el destino del continente. El cultivo de patata incrementó de forma muy notable
+                la cantidad de alimento que los campesinos europeos podían generar,
+                particularmente en zonas donde hasta entonces la agricultura del cereal no era viable.
+                Entre 1700 y 1900 se triplicó la población del mundo, una explosión demográfica que según
+                Nathan Nunn, economista en Harvard, se debió principalmente a la patata.
+            </p>
+            <p class="mt-4">
+                Podemos encontrar este producto de diversas formas: Frescas, congeladas, procesadas, fritas, etc.
+                El principal criterio de clasificación que se utiliza es su color de piel, junto con el color de la
+                carne.
+                En España, las importaciones son poco importantes, con excepción de las patatas pre-frita,
+                y de algunas partidas de materia prima. De la superficie total dedicada en España a las verduras,
+                la patata ocupa un 7%. Estas suelen estudiarse al margen de frutas y verduras, y es que son un
+                elemento muy importante. Las patatas suponen casi 55 millones de toneladas, mientras que el resto
+                de producciones hortícolas supera anualmente los 60 millones de toneladas, abarcando gran diversidad de
+                cultivos. Con ello, nos podemos hacer una idea de la magnitud de este producto. Por último,
+                esta hortaliza se encuentra entre las más exportadas a países no comunitarios, junto las cebollas y
+                ajos.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/patata/una_res_min.jpg"
+                    alt="Foto Patata"
+            >
+
+            <h3 class="apartado_h3">La Importancia de la Patata</h3>
+            <p class="mt-4">
+                Hoy, la patata es un alimento básico cultivado principalmente en las regiones templadas de todo el mundo
+                y que está presente en el mercado durante todo el año. En 2019 se sembraron 68.500 hectáreas en todo el
+                territorio nacional. En cuanto a la producción, ésta se situó en 2,2 millones de toneladas.
+                En la Unión Europea, la importancia del sector de la patata de dentro de la agricultura es mucho mayor
+                que en España. A efectos de calcular la renta agraria anual, en 2019 el sector representó el 6,4%
+                de la Producción Vegetal Final y el 3,6% de la Producción Agraria final. Del consumo per cápita total,
+                el grueso fueron patatas frescas (73% en 2019) y el resto fueron patata congelada y procesada.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                El Ministerio de Agricultura, Pesca y Alimentación (MAPA), nos facilita distintos datos que nos permiten
+                generar las gráficas <b>Volumen Consumo Nacional Patata</b> y <b>Penetración Nacional Patata</b> en las
+                que
+                mostramos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019 y 2020,
+                así como la acogida de la patata en los hogares españoles, respectivamente.
+                En ambas gráficas podemos observar como la tendencia tanto en 2018 como 2019 es muy parecida, sin
+                grandes
+                alteraciones que sean dignas de mención. También vemos que el comienzo de la pandemia supone un
+                <b>impacto positivo</b>, en el que tanto el volumen como la penetración crecen significativamente.
+                Cabe destacar el gran volumen, así como la penetración en los hogares que tiene este producto,
+                uno de los que más altas tasas tienen.
+                Con respecto a la penetración de los hogares, el mes de marzo presenta una subida significativa
+                con respecto los años anteriores, siendo en abril el mes de mayor crecimiento distanciándose hasta un 7%
+                de años anteriores, como viene siendo la tónica general. Aun así, no es el producto que mayor subida
+                tiene porcentualmente, ya que encontramos una media general más cercana al 10%, atribuimos esto a que
+                sus datos ya eran bastante altos y ya estaba en la mayoría de hogares españoles.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                En 2020, el volumen del consumo nacional de la patata se presentaba con datos ligeramente
+                inferiores en sus inicios con respecto años anteriores, pero, con la llegada de la COVID-19 y la
+                declaración
+                del <b>periodo de excepción</b> (marzo, abril y mayo), el volumen de consumo sufre un ascenso
+                significativo de en torno el 30-40% con respecto a los años 2018 y 2019.
+                Con ello vemos como la producción de este producto hortofrutícola se ve <b>afectado positivamente</b>
+                ante la crisis sanitaria, achacando de nuevo este comportamiento a que el sector alimentario
+                no paró la cadena de suministro, adaptándose al creciente consumo dado
+                por el miedo al desabastecimiento durante las primeras etapas de la crisis sanitaria.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Patata
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Patata
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Si observamos las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos varios patrones.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las importaciones
+                generalmente son superiores a las exportaciones, aunque esto dependerá de la época del año,
+                concentrándose los periodos de mayor importación durante los primeros meses del año
+
+                Por otra parte, las exportaciones presentan valores máximos en julio, siempre siendo menores a las
+                importaciones de la patata para ese año.
+
+                Centrándonos en los niveles durante <b>el periodo de la pandemia</b> con los años previos,
+                vemos que en cuanto a las importaciones siguen con el comportamiento ondulante que veíamos en años
+                anteriores, situándose algo por debajo con respecto a 2019.
+
+                Las exportaciones, centrándonos en el <b>periodo de excepción</b>,
+                <b>presentan cambios negativos significativos</b> que puede deberse al creciente volumen de consumo
+                acontecido en el comienzo del periodo de excepción, posiblemente debido a que la patata es uno de los
+                elementos clave en la cocina española (con tasas de penetración media del 80%), y la población
+                española se aprovisionó en estos meses de los productos más consumidos.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Finalmente observamos una <b>caída abrupta</b> en los valores de <b>diciembre de 2020</b>
+                para tanto las exportaciones e importaciones con los datos proporcionados.
+                Investigando las causas de este suceso atribuimos esto a que los datos no están completos para este
+                periodo, ya que para todos los meses excepto este, el número de registros de exportaciones e
+                importaciones
+                de España con otros países rondan los 55 casos, mientras que para este mes únicamente contamos con 8
+                casos,
+                resultando en que la suma de exportaciones e importaciones sea menor.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Patata
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/patata.json', function (data) {
+                /* -- Volumen Consumo Nacional Patata -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_patatas_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Patata -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_patatas_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Patata -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["patatas_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 3000000,
+                        max: 50000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

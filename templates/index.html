@@ -1,0 +1,183 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %} AgroAnalysis - Inicio {% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">Reto Cajamar Agro Analysis</h1>
+            <h2 class="text-xl text-gray-600 mt-1">Equipo Muki - UPV</h2>
+
+            <div class="texted-block mt-6">
+
+                <h3 class="apartado_h3">El Objetivo</h3>
+
+                <p class="mt-4">
+                    En la presente página web tratamos de analizar el comportamiento del mercado hortofrutícola
+                    español durante el periodo de pandemia. Para ello, en un primer lugar se han estudiado varios
+                    factores
+                    para diferentes frutas y verduras dadas que nos permiten entender mejor caso a caso
+                    el efecto de la COVID-19. Tras esto, se plantean conclusiones en términos generales para este tipo
+                    de producto generando distintas gráficas para la penetración de los productos en los hogares
+                    españoles, o mediante mapas con los valores de importaciones y exportaciones de los mismos.
+                </p>
+
+                <img
+                        class="w-full lg:w-4/12 float-none lg:float-right mt-6 lg:mt-4 ml-0 lg:ml-6 mb-6 lg:mb-4"
+                        style="transform: scaleX(-1)"
+                        src="static/images/otros/granja_min.png"
+                        alt="Ilustración granja"
+                >
+
+                <p class="mt-4">
+                    Así pues, se ha realizado un <b>análisis exploratorio de los datos</b> proporcionados con orígenes
+                    del Ministerio de Agricultura, Pesca y Alimentación (MAPA), EuroStat, MercaMadrid, MercaBarna, el
+                    Observatorio de Precios de la Junta de Andalucía y <i>EU Open Data Portal</i>. Además, se han
+                    <b>recogido datos adicionales</b> tanto en materia de bases de datos con Alimarket o FEPEX, entre
+                    otras, como analizando informes de Hortoinfo o MERCASA. Dichos datos adicionales son expuestos en
+                    el apartado <a href="/referencias" class="underline">Referencias</a>. Esto nos lleva a generar
+                    <b>hipótesis robustas</b> acerca de que efectos tiene el COVID en productos hortofrutícolas, así
+                    como complementar las gráficas iniciales. Todo el código es público y accesible desde
+                    <a href="https://gitea.maparla.es/maparla/agromuki" target="_blank" class="link_web">Gitea</a>
+                    donde se indica como replicar el proyecto en entornos locales y se documentan todo los
+                    <i>scripts</i>
+                    utilizados.
+                </p>
+
+                <h3 class="apartado_h3">Estructura General</h3>
+                <p class="mt-4">
+                    El análisis del impacto de la crisis sanitaria en el sector hortofrutícola se ha realizado de forma
+                    gradual, analizando de forma individual el consumo y otros indicadores de una gran parte de
+                    frutas y verduras consumidas en España, hacía el estudio de aspectos más generales como el efecto
+                    de la COVID-19 en materia de comercio exterior y la cuantificación del mismo mediante las
+                    previsiones
+                    obtenidas para 2020 si el coronavirus no hubiera irrumpido en nuestras vidas.
+                </p>
+                <p class="mt-4">
+                    Con ello, en el apartado <a href="/metodologia" class="underline">Metodología</a>, se detallan
+                    las fuentes de datos utilizadas y los ficheros creados para realizar el análisis del impacto de la
+                    crisis sanitaria.
+                    Podemos acceder a dichos archivos de forma sencilla, con un solo <i>click</i>, y finalmente algunas
+                    mejoras futuras que podríamos abordar.
+                </p>
+                <p class="mt-4">
+                    Tras esto, en el apartado de <a href="/frutas" class="underline">Frutas</a> y
+                    <a href="/verduras" class="underline">Verduras</a> encontramos un análisis atómico de las diferentes
+                    piezas que orquestan el mercado hortofrutícola español. Mostramos su consumo, penetración,
+                    exportación
+                    e importación a lo largo de los años y como han atravesado de forma individual la pandemia,
+                    centrándonos
+                    en el periodo de excepción, y tratamos de razonar su comportamiento mediante una visualización clara
+                    utilizando varias gráficas.
+                </p>
+                <p class="mt-4">
+                    En el siguiente apartado, <a href="/comercio" class="underline">Comercio Exterior</a>, recopilamos y
+                    mostramos de forma visual mediante mapas las relaciones en materias de importación y exportación de
+                    productos hortofrutícolas de España con otros países, pudiendo elegir diferentes momentos de tiempo.
+                    A
+                    su vez, cada región
+                    es coloreada en función de su número de casos de COVID-19, permitiéndonos ver de forma más clara
+                    como afecta la gravedad de la pandemia en cada lugar y como avanzan las relaciones referentes al
+                    comercio exterior.
+                </p>
+
+                <p class="mt-4">
+                    En el apartado de <a href="/prevision" class="underline">Previsión</a> se aborda un punto
+                    interesante,
+                    tratar de cuantificar el impacto de la crisis sanitaria. Para ello se utilizan técnicas de
+                    Inteligencia Artificial para prever el comportamiento en materia de exportaciones e importaciones
+                    de productos hortofrutícolas si la crisis sanitaria no hubiese sucedido. Se aportan diferentes
+                    gráficas contraponiendo la previsión y los datos reales obtenidos en la crisis sanitaria y se
+                    discuten
+                    los resultados obtenidos.
+                </p>
+
+                <p class="mt-4">
+                    Finalizando con el análisis, el apartado <a href="/conclusiones" class="underline">Conclusiones</a>
+                    recapitula lo visto en los apartados anteriores y realiza un pequeño análisis general sobre el
+                    consumo
+                    de frutas y verduras a nivel nacional. Tras esto se aportan unas conclusiones generales.
+                </p>
+
+                <p class="mt-4">
+                    Por último, en <a href="/referencias" class="underline">Referencias</a> presentamos el Data Partner
+                    del proyecto, DATAGRI, junto los datasets originales proporcionados y las Licencias de uso de los
+                    recursos utilizados para la creación de este sitio web (<i>spoiler</i>: todos gratuitos, de libre
+                    acceso).
+                </p>
+
+                <h3 class="apartado_h3">Pinceladas</h3>
+                <p class="mt-4">
+                    La crisis de la COVID-19 ha puesto de manifiesto la <b>robustez del sector de frutas y verduras</b>
+                    en nuestro país, así como su gran capacidad de respuesta y adaptación.
+                    En tiempo récord ajustó los procesos productivos y la oferta para satisfacer a un consumidor
+                    con <b>nuevos intereses: salud, seguridad</b>, proximidad, productos básicos y sostenibles.
+                    Y en este contexto, finalmente se aprobó la nueva Política Agraria Común (PAC),
+                    que marcará el presente y el futuro del sector. A través de la transición tecnológica y la
+                    digitalización, Europa apremia al agricultor a avanzar hacia una agricultura más verde y sostenible.
+                </p>
+
+                <p class="mt-4">
+                    La irrupción de la COVID-19 nos ha cambiado como sociedad y como consumidores,
+                    y en este nuevo contexto el sector de frutas y hortalizas ha salido reforzado por su papel
+                    en la gestión de la crisis sanitaria y su compromiso con la población.
+                    Ante un escenario de incertidumbre, ha sabido demostrar su profesionalidad,
+                    sus fortalezas y su <b>gran poder de adaptación</b>. Sin interrumpir la actividad,
+                    en cuestión de días, agricultores, productores y comercializadores diseñaron nuevos planes
+                    y estrategias, establecieron protocolos y medidas de seguridad, adaptaron turnos y
+                    priorizaron las líneas de producción indispensables. Y todo ello, para alimentar con plena
+                    seguridad tanto al <b>mercado nacional como el europeo</b>.
+                    Así, no fue hasta después del <b>verano cuando volvió cierta normalidad</b>.
+                    Tras esto, la <b>segunda ola de la COVID-19</b> y las amplias restricciones impuestas a los
+                    desplazamientos y las medidas de <b>distanciamiento social en toda Europa</b> han incrementado y
+                    extendido los problemas que surgieron durante la primavera: disrupción de las cadenas de suministro,
+                    cierre temporal de mercados al por mayor importantes para el sector de las frutas y hortalizas y
+                    cierre de la restauración, comedores colectivos, bares y hoteles.
+                    Todo ello conlleva <b>nuevas perturbaciones</b>.
+                </p>
+
+                <p class="mt-4">
+                    Por otra parte, en cuanto a la <b>venta mayorista</b>,
+                    <a href="https://kutt.it/3EEixF" target="_blank" class="underline">David Chica</a>,
+                    Director general en Mercamadrid, aseguraba que en su adaptación a la nueva situación provocada por
+                    el COVID en Mercamadrid se establecieron <b>nuevas modalidades</b> para que los clientes realizaran
+                    los pedidos, ya fuese a través del teléfono, WhatsApp o de forma online... Y aunque surgieron
+                    como medidas urgentes en un contexto excepcional, estos modos de compra empleando
+                    <b>nuevas tecnologías</b> han llegado para quedarse.
+                </p>
+
+                <p class="mt-4">
+                    Finalmente, desde que se iniciarla la pandemia y lo que se denomina <i>nueva normalidad</i>, el
+                    sector
+                    hortofrutícola se encuentra con la dicotomía de un <b>consumidor que ha perdido poder
+                    adquisitivo</b>
+                    y que se ha vuelto a la compra de productos básicos, pero que a su vez, quiere <b>comer sano</b>,
+                    puesto que la salud se ha convertido en una de las prioridades desde que se desatara la crisis
+                    sanitaria. Esto ha favorecido al mercado de frutas y verduras debido a la percepción que se tiene
+                    de estas, factor que ha mantenido el sector en pie.
+                </p>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+{% endblock %}
+
+{% block js_imports %}
+
+    <script>
+        $(document).ready(function () {
+            let nav_actual = $(".inicio_nav_item");
+            active_current_nav(nav_actual);
+        });
+    </script>
+
+{% endblock %}

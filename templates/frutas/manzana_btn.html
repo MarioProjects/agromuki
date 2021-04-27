@@ -1,0 +1,12 @@
+
+{% extends "frutas/base_fruta_btn.html" %}
+
+{% block url_fruta %}manzana{% endblock %}
+
+{% block clases_fruta %}bg-green-50 hover:bg-green-100 text-green-800 border-2 border-green-600 rounded{% endblock %}
+
+{% block img %}
+{{ icon_fruta('/icons/productos/001-apple.svg', 'Ilustración Manzana') }}
+{% endblock %}
+
+{% block nombre_fruta %} Manzana {% endblock %}

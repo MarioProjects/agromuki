@@ -1,0 +1,46 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %}AgroAnalysis - {% block nombre_hortaliza_titulo %}{% endblock %}{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">
+                {% block nombre_hortaliza %}
+                {% endblock %}
+            </h1>
+
+            <div class="texted-block mt-6">
+                {% block info_hortaliza %}
+                {% endblock %}
+            </div>
+
+        </main>
+
+    </div>
+
+{% endblock %}
+
+{% block js_imports %}
+    <script src="static/js/config_productos.js"></script>
+    <script>
+        $(document).ready(function () {
+            let nav_actual = $(".verduras_nav_item");
+            active_current_nav(nav_actual);
+        });
+    </script>
+
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+            integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js"></script>
+
+    {% block additional_js %}
+    {% endblock %}
+
+{% endblock %}

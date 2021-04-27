@@ -1,0 +1,218 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Limón{% endblock %}
+{% block nombre_fruta %}Limón{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información del Limón</h3>
+            <p class="mt-4">
+                El limón es originario del sureste asiático, aunque actualmente se produce en todas la áreas tropicales
+                y
+                templadas del globo. El principal país productor es México seguido de la India, mientras que
+                España es el primer país exportador de limones y limas.
+            </p>
+            <p class="mt-4">
+                Por cultivos, el limonero es la fruta que más superficie ocupa en España, con 49.000 hectáreas
+                aproximadamente, tan solo por detrás del naranjo y el mandarino. Por otra parte, a nivel mundial, las
+                cosecha de limón se acercaron a los 8 millones de toneladas en la campaña de 2019/2020. Estos, al igual
+                que
+                otros cítricos para zumos, se buscan las variedades cuyo rendimiento en zumo sea alto, donde observamos
+                los limones comunes (25% de zumo) y limones selectos (verdelli y primofiori, 20%).
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/limon/tabla_res_min.jpg"
+                    alt="Foto Limones"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Si tomamos los datos que nos facilita el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                podemos generar gráficas para estudiar el <b>Volumen Consumo Nacional Limón</b> y la
+                <b>Penetración Nacional Limón</b> en las que vemos la cantidad en miles de kilogramos vendidos
+                en cada mes durante los años 2018, 2019 y 2020, así como la acogida del limón en los hogares españoles,
+                respectivamente. En ambas gráficas podemos observar cómo comparando los niveles de 2018 con los de 2019
+                no apreciamos cambios significativos que sean dignos de mención.
+                Respecto el comienzo de la pandemia, esta supone un <b>impacto positivo</b> en términos de los niveles
+                del volumen de consumo y la penetración del limón.
+                Con respecto a la penetración de los hogares, el mes de <b>marzo presenta una leve subida</b>
+                con respecto los años anteriores, siendo en abril el mes de mayor crecimiento distanciándose hasta un
+                15%
+                de años anteriores. Si comparamos la subida con la experimentada por productos hortofrutícolas,
+                en lo que encontramos una media general de crecimiento más cercana al 10%, vemos que el recepción
+                del limón es muy positiva.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                En 2020, el volumen del consumo nacional del limón se presentaba con datos que podríamos calificar de
+                <i>normales</i> con niveles entre los obtenidos en los años 2018 y 2019.
+                Con la llegada de la COVID-19 y la declaración
+                del <b>periodo de excepción</b> (marzo, abril y mayo), el volumen de consumo sufre un ascenso
+                significativo de en torno el 20% en marzo, hasta un 70% en abril, con respecto a los años 2018 y 2019.
+                Con ello vemos como la producción de este cítrico se ve <b>afectado positivamente</b>
+                ante la crisis sanitaria, achacando de nuevo este comportamiento a que el sector alimentario
+                no paró la cadena de suministro, adaptándose al creciente consumo dado por factores como
+                el miedo al desabastecimiento durante las primeras etapas de la crisis sanitaria.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Limón
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Limón
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Por otra parte, si estudiamos las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos varios patrones.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las importaciones
+                siguen un patrón ondulante, que se mantiene bastante estable si lo comparamos con lo
+                referente a las exportaciones más irregulares.
+
+                Aun así, estas subidas y bajadas en los niveles de importaciones se repiten de un año a otro,
+                en los mismos meses, donde alrededor de los meses de junio y julio se experimenta un crecimiento,
+                y se realiza una bajada más o menos gradual.
+
+                Centrándonos en los niveles durante el periodo de la pandemia con los años previos,
+                vemos que <b>no existen cambios significativos</b> con respecto otros años en materia de importaciones,
+                alcanzando un máximo local en junio de 2020 como era de esperar, ligeramente inferior al de 2019,
+                siguiendo la tendencia que este proyectaba al obtener valores inferiores a los de 2018, donde
+                encontramos el máximo global del periodo estudiado.
+
+                En cuanto a las exportaciones, es más complicado estudiar su comportamiento desigual.
+                Aun con ello, vemos como las exportaciones desde el principio del <b>periodo de excepción</b>
+                crecen abruptamente alcanzando valores un 33% superiores a los vistos en la ventana de tiempo
+                estudiada. Este comportamiento podemos atribuirlo de forma clara a la aparición de la COVID-19, donde
+                en este lugar presenta un <b>efecto positivo</b> para el mercado español.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Limón
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/limon.json', function (data) {
+                /* -- Volumen Consumo Nacional Limon -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_limones_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Limon -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_limones_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Limon -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["limones_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 400000,
+                        max: 120000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

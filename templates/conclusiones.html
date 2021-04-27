@@ -1,0 +1,379 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %} AgroAnalysis - Conclusiones {% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">Conclusiones</h1>
+
+            <div class="texted-block mt-6">
+
+                <h3 class="apartado_h3">Análisis detallado productos</h3>
+                <p class="mt-4">
+                    En los apartados de <a href="/frutas" class="underline">Frutas</a> y
+                    <a href="/verduras" class="underline">Verduras</a>
+                    analizamos diferentes variables para una serie de productos hortofrutícolas
+                    de forma individual. A grandes rasgos, vemos cómo la crisis sanitaria afecta de forma
+                    variada dependiendo del producto en cuestión. Por una parte, podemos observar cómo existen
+                    productos,
+                    como la naranja, asociados a una buena salud e incluso a la prevención de enfermedades como la
+                    gripe.
+                    Este tipo de condicionantes se ve claramente plasmado por el COVID, disparando los números de
+                    volumen,
+                    importación y exportación positivamente, en esta clase de productos.
+                </p>
+                <p class="mt-4">
+                    Por otra parte, encontramos productos con tasas de penetración altas en el hogar español que han
+                    atravesado la crisis sanitaria de forma más discreta, pero que aun así son elementos comunes en
+                    la cocina española y ya sea por el miedo al desabastecimiento o para aprovisionarse durante la
+                    pandemia, han crecido durante el periodo de excepción. En este supuesto encontraríamos productos
+                    como el pimiento o la cebolla, con tasas de penetración superiores al 70%.
+                </p>
+                <p class="mt-4">
+                    Finalmente, encontramos productos minoritarios o de temporada en España que han sufrido en menor
+                    medida los efectos de la COVID-19. Estos podrían ser el aguacate o el espárrago, productos
+                    hortofrutícolas en los que no observamos efectos claros de la pandemia.
+                </p>
+
+                <h3 class="apartado_h3">Análisis productos clave</h3>
+                <p class="mt-4">
+                    Otra forma de estudiar el impacto de la COVID-19 en el mercado español de frutas y hortalizas es
+                    mediante el análisis del comportamiento de aquellos productos que dominan en el mercado.
+                </p>
+
+                <p class="mt-4">
+                    Si tomamos los tres productos con mayor acogida en el hogar español, de aquellos recogidos por el
+                    Ministerio de Agricultura, Pesca y Alimentación (MAPA), podemos ver que los picos máximos
+                    (gráfica <b>Penetración Nacional Máxima</b>) de penetración de estos productos obtenidos
+                    en los años 2018 y 2019 varían de media en torno un 1%, en cambio, si los comparamos con 2020
+                    se produce un aumento significativo del 5.5% aproximadamente con respecto a los años anteriores.
+
+                    Por otra parte, si analizamos el valor promedio de penetración de estos productos durante los
+                    meses de marzo, abril y mayo (meses de excepción del año 2020),
+                    (gráfica <b>Penetración Nacional Media - Excepción</b>), observamos claramente un crecimiento
+                    en el año 2020 con respecto a los años anteriores. Así, observamos datos parecidos a los de la
+                    gráfica
+                    anterior,
+                    con diferencias entre 2018 y 2019 mínimas, presentando 2020 un aumento de en torno el 5%.
+
+                    Con ello vemos que los efectos de la crisis sanitaria se hacen notar en el mercado español,
+                    podríamos decir de forma positiva, haciendo que hasta productos con una gran cuota de mercado
+                    crezcan significativamente.
+                </p>
+
+
+                <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                    <div class="w-full xl:w-1/2 mt-6">
+                        <p class="text-xl pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Penetración Nacional Máxima
+                        </p>
+                        <div class="p-6"> <!-- bg-white  -->
+                            <canvas id="penetracion_max_nacional" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="w-full xl:w-1/2 mt-6">
+                        <p class="text-xl pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Penetración Nacional Media - Excepción
+                        </p>
+                        <div class="p-6"> <!-- bg-white -->
+                            <canvas id="penetracion_media_nacional" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-4">
+                    Otra herramienta que nos permite estudiar los efectos de la COVID-19 en el mercado de frutas y
+                    hortalizas,
+                    de nuevo tomando los datos proporcionados por el MAPA, es analizar el volumen de venta de producto
+                    nacional
+                    a lo largo del tiempo. Para ello en la gráfica <b>Picos Máximos Volumen Nacional</b> mostramos
+                    los tres productos con mayores picos de volumen en miles de kilogramos: naranja, patata y sandía.
+
+                    Tomando en primer lugar el producto que presenta siempre un mayor volumen, la patata, vemos como
+                    el avance desde enero de 2018 hasta febrero de 2020 es más o menos estable, ondulando entre un
+                    10-20%
+                    dependiendo de la época. Pero, vemos cómo de repente en marzo de 2020 se produce una subida del 35%,
+                    alcanzando su pico máximo en abril con una subida del 50% con lo que venía siendo la media de
+                    volumen
+                    de este producto. Esta <b>subida se corresponde con la declaración del período de excepción</b> y es
+                    por ello que podemos atribuir este incremento de forma inequívoca a la crisis
+                    originada por la COVID-19. Si estudiamos la naranja, vemos como abril de nuevo marca un máximo
+                    histórico (teniendo en cuenta la ventana de tiempo estudiada), con un incremento con respecto a
+                    otros
+                    años de en torno el 30%. Por último, con la <b>sandia</b> podemos observar el comportamiento de
+                    aquellos
+                    productos que están <b>muy marcados por la temporada</b>, acumulando su venta en los meses estivos
+                    del año. Aunque los meses del periodo de excepción no se corresponden con aquellos en los que
+                    la sandía está presente en el mercado, la crisis sanitaria sigue siendo un problema y, aunque en los
+                    meses estivos las restricciones impuestas por el gobierno fueran más laxas
+                    (<a class="link_web" href="https://kutt.it/JmNmhm" target="_blank">Dogv</a>), la población española
+                    adopta unos comportamientos diferentes a los de años anteriores, llevando a la sandía a crecer
+                    un 18% con respecto a 2019, y un 32% con respecto a 2018.
+
+                    Con todo ello, vemos de nuevo como la <b>crisis sanitaria afecta positivamente en los productos
+                    hortofrutícolas</b> presentes en el mercado español.
+                </p>
+
+
+                <div class="hidden lg:flex lg:flex-wrap mt-6 clear-both">
+                    <div class="w-full xl:w-full mt-6 mb-6">
+                        <p class="text-xl pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Picos Máximos Volumen Nacional
+                        </p>
+                        <div class="p-6"> <!-- bg-white  -->
+                            <canvas id="volumen_max_nacional_historial" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-4">
+                    Por otro lado, si estudiamos los productos que mayor volumen anual presentan para las verduras
+                    (lechuga, cebolla, patata) y las frutas (naranja, tomate y plátano), obteniendo la gráfica
+                    <b>Volumen Frutas y Verduras Nacional</b>, podemos concluir varias cosas.
+
+                    Podemos observar cómo independientemente del tipo de producto, si es verdura o fruta, existen
+                    productos que atraviesan la crisis del coronavirus con <b>aumentos significativos</b>, como es el
+                    caso
+                    de la patata (verdura) y la naranja (fruta), ambos con un crecimiento comparando los picos máximos
+                    de en torno el 30%, mientras que hay otros productos que se ven menos afectados por la COVID-19.
+                    En este último caso encontraríamos el tomate (fruta) y la lechuga (verdura), con subidas más
+                    marginales del 5% y 10%, respectivamente.
+
+                    Con ello podemos afirmar que <b>la categoría del producto no es un factor decisivo</b> que marque
+                    inequívocamente el rumbo que el producto va a tener en el mercado español, si no que depende
+                    más del producto en cuestión. Por otra parte, podemos ver cómo en mayor o menor medida, los casos
+                    tratados muestran un <b>comportamiento positivo</b> frente la crisis sanitaria, observando como
+                    el <b>periodo de excepción</b> es la época donde el aumento del volumen es mayor. Podemos achacar
+                    este
+                    comportamiento al pánico inicial provocado por una situación de excepción llevando a la gente
+                    a abastecerse, que posteriormente va perdiendo fuerza al <i>normalizar</i> la situación.
+                </p>
+
+                <div class="hidden lg:flex lg:flex-wrap mt-6 clear-both">
+                    <div class="w-full xl:w-full mt-6 mb-6">
+                        <p class="text-xl pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Volumen Frutas y Verduras Nacional
+                        </p>
+                        <div class="p-6"> <!-- bg-white  -->
+                            <canvas id="volumen_acumulado_nacional_historial" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="apartado_h3">Análisis correlaciones</h3>
+                <p class="mt-4">
+                    Aunque se han estudiado los efectos de la COVID-19 con respecto a
+                    diferentes variables del mercado español, se ha realizado un análisis más exhaustivo de correlaciones
+                    entre el número de casos y muertes en España  y el valor de las exportaciones, importaciones y
+                    consumo de todos los productos hortofrutícolas.
+                    Se ha decidido no incluir dicho análisis en la página y ahondar en él debido a que, en primer lugar,
+                    observábamos fuertes correlaciones entre diferentes productos que aparentemente no
+                    tenían nada en común. Investigando este suceso se debía a que la <b>temporada
+                    de consumo</b> de los productos correlacionados era la misma. Conocedores de este hecho, observando que las
+                    correlaciones no captan el impacto real que hayamos en los productos analizados
+                    uno a uno en las secciones de <a href="/frutas" class="underline">Frutas</a> y <a href="/verduras"
+                                                                                                      class="underline">Verduras</a>,
+                    atribuyendo dicho comportamiento a que los efectos de la crisis sanitaria son independientes a la
+                    temporada de consumo de cada producto. Con todo ello, podríamos dejar
+                    como trabajo futuro si recopilando datos en materia de exportaciones, importaciones y/o volumen de
+                    consumo de los productos hortofrutícolas a nivel diario, como los que tenemos para la COVID-19,
+                    pudiera permitirnos estudiar acotando los tiempos por temporada del producto la correlación del
+                    COVID-19 y cada una de las frutas y verduras.
+                </p>
+
+                <h3 class="apartado_h3">Conclusiones generales</h3>
+                <p class="mt-4">
+                    Así, el sector hortofrutícola en <b>2020 ha estado marcado por la crisis sanitaria</b>.
+                    El sector de frutas y hortalizas ha mantenido
+                    plenamente la actividad, productiva y comercializadora, tanto en las fases más críticas
+                    (el confinamiento total entre marzo y mayo), así como durante la segunda y
+                    tercera ola de la pandemia, al ser un sector esencial para garantizar el abastecimiento
+                    de la población, adaptándose a la excepcionalidad de esta situación, que ha supuesto cambios
+                    importantes.
+                </p>
+                <p class="mt-4">
+                    En el ámbito de la producción, se han adaptado los trabajos en las explotaciones
+                    y almacenes a los requisitos establecidos por las autoridades sanitarias, con la implantación de
+                    protocolos de actuación, que incluyen indicaciones de carácter general junto a medidas específicas
+                    para almacenes, oficinas, semilleros, talleres y fincas. Ello ha supuesto importantes inversiones
+                    en seguridad y sanidad laboral, necesarias por otra parte, que han conllevado incremento de costes.
+                </p>
+                <p class="mt-4">
+                    El crecimiento del consumo de frutas y hortalizas frescas en los hogares en 2020 ha estado impulsado
+                    por los períodos de confinamiento total o parcial <b>a causa de la COVID</b>.
+                    En los meses de confinamiento total, la demanda en los hogares se <b>incrementó fortísimamente</b>,
+                    con un <b>40% en abril y un 22% en mayo</b>. Después, en los meses de verano en los que finalizaron
+                    las restricciones, el consumo subió en menor medida, con un 4.5% en julio o un 1% en agosto y en
+                    octubre con la vuelta a las restricciones de movimiento y confinamientos parciales,
+                    el consumo vuelve a crecer con un 11% en octubre y un 10% en noviembre
+                    (<a class="link_web" href="https://kutt.it/F11zxo" target="_blank" title="Fepex">Fepex</a>).
+                </p>
+
+
+                <div class="flex flex-wrap lg:hidden mt-7 text-gray-600 italic">
+                    <div class="w-full mt-6 mb-6">
+                        <p>
+                            (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                            se necesita una pantalla mayor. Sentimos las molestias.)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+{% endblock %}
+
+{% block js_imports %}
+
+    <script src="static/js/config_productos.js"></script>
+
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            let nav_actual = $(".conclusiones_nav_item");
+            active_current_nav(nav_actual);
+
+            $.getJSON('../../static/data/graphs/conclusiones.json', function (data) {
+
+                /* -- Penetración a lo largo de los años máxima -- */
+                const penetracion_maxima_nacional_canvas = document.getElementById("penetracion_max_nacional");
+                const penetracion_maxima_producto_nacionales = data["top3_penetracion_maxima"];
+                penetracion_maxima_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' | ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + ' %';
+                        }
+                    }
+                }
+                let line_chart_penetracion_maxima_nacional = new Chart(
+                    penetracion_maxima_nacional_canvas, penetracion_maxima_producto_nacionales
+                );
+
+
+                /* -- Penetración a lo largo de los años media -- */
+                const penetracion_media_nacional_canvas = document.getElementById("penetracion_media_nacional");
+                const penetracion_media_producto_nacionales = data["top3_penetracion_media_excepcion"];
+                penetracion_media_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' | ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + ' %';
+                        }
+                    }
+                }
+                let line_chart_penetracion_media_nacional = new Chart(
+                    penetracion_media_nacional_canvas, penetracion_media_producto_nacionales
+                );
+
+
+                /* -- Picos Máximos Volumen Nacional -- */
+                const volumen_maximo_nacional_canvas = document.getElementById("volumen_max_nacional_historial");
+                const volumen_maximo_producto_nacionales = data["top3_volumen_maximos_historial"];
+                volumen_maximo_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' | ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                volumen_maximo_producto_nacionales["options"] ["annotation"] = {
+                    annotations: [
+                        {
+                            drawTime: "afterDatasetsDraw",
+                            id: "vline_imp",
+                            type: "line",
+                            mode: "vertical",
+                            scaleID: "x-axis-0",
+                            value: 25,
+                            borderColor: "rgba(255, 22, 22, 0.6)",
+                            borderDash: [10, 10],
+                            borderWidth: 2,
+                            label: {
+                                enabled: false,
+                                backgroundColor: "red",
+                                content: "COVID-19",
+                            }
+                        }
+                    ]
+                };
+                let line_chart_volumen_maximo_nacional = new Chart(
+                    volumen_maximo_nacional_canvas, volumen_maximo_producto_nacionales
+                );
+
+                /* -- Volumen Frutas y Verduras Nacional -- */
+                const volumen_acumulado_nacional_canvas = document.getElementById("volumen_acumulado_nacional_historial");
+                const volumen_acumulado_producto_nacionales = data["volumen_acumulado_maximos_historial"];
+                volumen_acumulado_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' | ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                volumen_acumulado_producto_nacionales["options"] ["annotation"] = {
+                    annotations: [
+                        {
+                            drawTime: "afterDatasetsDraw",
+                            id: "vline_imp",
+                            type: "line",
+                            mode: "vertical",
+                            scaleID: "x-axis-0",
+                            value: 25,
+                            borderColor: "rgba(255, 22, 22, 0.6)",
+                            borderDash: [10, 10],
+                            borderWidth: 2,
+                            label: {
+                                enabled: false,
+                                backgroundColor: "red",
+                                content: "COVID-19",
+                            }
+                        }
+                    ]
+                };
+                let line_chart_volumen_acumulado_nacional = new Chart(
+                    volumen_acumulado_nacional_canvas, volumen_acumulado_producto_nacionales
+                );
+
+
+            });
+
+        });
+
+
+    </script>
+
+{% endblock %}

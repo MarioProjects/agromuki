@@ -1,0 +1,208 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Fresa{% endblock %}
+{% block nombre_fruta %}Fresa{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Fresa</h3>
+            <p class="mt-4">
+                La fresa silvestre procede de los Alpes y es conocida desde tiempos prehistóricos.
+                El fresón es una variedad de fresa que proviene de dos especies americanas que
+                se mezclaron a su llegada a Europa. La fresa que conocemos actualmente fue introducida
+                en Europa por los primeros colonos de Virginia (Estados Unidos).
+                Con la llegada de la fresa de Virginia en el siglo XIX, se obtuvieron nuevas variedades
+                que ganaron en tamaño y perdieron en sabor. Hoy en día, sin embargo,
+                las más comercializadas son fresas de cultivo intensivo.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/fresa/frente_res_min.jpg"
+                    alt="Foto Fresa"
+            >
+
+            <p class="mt-4">
+                La cosecha de esta fruta es una de las que destaca a España dentro de la UE, y es que es una de las
+                frutas-hortalizas más extendidas en España junto el melón y la sandía.
+            </p>
+
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Al filtrar los datos que nos facilita el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                podemos generar gráficas para estudiar el <b>Volumen Consumo Nacional Fresa</b> y la
+                <b>Penetración Nacional Fresa</b> en las que vemos la cantidad en miles de kilogramos vendidos
+                en cada mes durante los años 2018, 2019 y 2020, así como la acogida de la fresa en los hogares
+                españoles,
+                respectivamente. En ambas gráficas podemos observar como este producto hortofrutícola viene
+                fuertemente marcado por la temporada a estudiar, observando como en los meses estivos el consumo
+                de esta fruta se desploma significativamente.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Desde el punto de vista de la crisis sanitaria, no apreciamos cambios significativos con respecto los
+                años anteriores. Así hay momentos en los que los valores obtenidos tanto en la penetración de la
+                fresa en el ámbito nacional, como el volumen de consumo, estos se sitúan entre los valores obtenidos
+                entre los años 2018 y 2019, sin destacar <b>ningún valor atípico</b> como es la norma en
+                el resto de productos hortofrutícolas.
+            </p>
+
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Fresa
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Fresa
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Tomando las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos varios patrones claros.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las exportaciones
+                siguen un patrón ondulante picudo, que se mantiene bastante asentado a lo largo de los años.
+
+                Así, las subidas y bajadas observadas en los niveles de exportaciones se repiten de un año a otro
+                en los mismos meses, donde alrededor de los meses de enero a junio/julio se experimenta un crecimiento
+                progresivo, realizándose posteriormente una bajada más o menos gradual hasta finalizar el año,
+                presentando valores máximos en marzo y abril.
+
+                En cuanto al efecto de la pandemia, si comparamos el periodo de excepción con los años previos,
+                vemos que <b>no existe un ligero descenso</b> del 10% en materia de exportaciones con respecto otros
+                años,
+                viéndose <b>afectadas negativamente</b>, al igual que ocurre con las importaciones.
+                Podemos atribuir este comportamiento a que la fresa es una fruta con una penetración elevada de por
+                sí en los meses que coincidió con el inicio de la crisis sanitaria, y como veíamos en las graficas
+                anteriores, no se producen oscilaciones en el volumen de este producto hortofrutícola. Además, el auge
+                de otras frutas, como la naranja, asociadas más fuertemente a la salud, puede causar que otras frutas
+                desciendan en su consumo.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Fresa
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/fresa.json', function (data) {
+                /* -- Volumen Consumo Nacional Fresa -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_fresas_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Fresa -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_fresas_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Fresa -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["fresas_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 200000,
+                        max: 180000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %}AgroAnalysis - Verduras{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">Verduras</h1>
+
+            <div class="texted-block mt-12">
+                <p>
+                    Dentro de las producciones agrícolas, el grupo de las verduras es sin duda uno de los más variados,
+                    pues incluye desde las verduras o plantas de hoja (que se consumen bien crudas o bien cocinadas),
+                    a las legumbres verdes (como el guisante, por ejemplo), pasando por los tubérculos (como la patata)
+                    y las producciones de fruto y flor (como el calabacín).
+                </p>
+                <p class="mt-4">
+                    Hoy en día se puede encontrar en el mercado una gran variedad de verduras de orígenes diversos
+                    (local, nacional, importación, etc.) y con distintas presentaciones
+                    (frescas, congeladas, deshidratadas, en conserva, etc.). Esta diversificación de la oferta
+                    se irá ampliando con toda seguridad en los próximos años.
+                </p>
+
+                <p class="mt-4">
+                    A continuación se analizan los efectos de la COVID-19 de una selección de verduras. Hacer click
+                    sobre la verdura deseada para más información.
+                </p>
+
+                <div class="flex flex-wrap justify-evenly mt-6 mb-10">
+                    {% include 'verduras/tomate_btn.html' %}
+                    {% include 'verduras/cebolla_btn.html' %}
+                    {% include 'verduras/zanahoria_btn.html' %}
+                    {% include 'verduras/lechuga_btn.html' %}
+                    {% include 'verduras/esparrago_btn.html' %}
+                    {% include 'verduras/patata_btn.html' %}
+                    {% include 'verduras/alcachofa_btn.html' %}
+                    {% include 'verduras/ajo_btn.html' %}
+                    {% include 'verduras/calabacin_btn.html' %}
+                    {% include 'verduras/berenjena_btn.html' %}
+                </div>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+{% endblock %}
+
+{% block js_imports %}
+
+    <script>
+        $(document).ready(function () {
+            let nav_actual = $(".verduras_nav_item");
+            active_current_nav(nav_actual);
+
+            random_animation_speed(".hortaliza_btn_div", ["", "animate__faster"]);
+
+        });
+    </script>
+
+{% endblock %}

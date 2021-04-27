@@ -1,0 +1,189 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "verduras/base_hortaliza_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_hortaliza_titulo %}Alcachofa{% endblock %}
+{% block nombre_hortaliza %}Alcachofa{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_hortaliza %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Alcachofa</h3>
+            <p class="mt-4">
+                La alcachofa procede del Noreste de África y parece que ya la conocían los griegos y los romanos.
+                Durante la Edad Media se fue introduciendo en Italia y España, parece que se mejoró el cultivo del cardo,
+                más amargo, y así se obtuvo la alcachofa. Los navegantes españoles y franceses introdujeron la alcachofa
+                en América, dónde se cultiva en California y otras zonas de clima templado. Esta hortaliza también se
+                cultiva en todos los países de la Cuenca Mediterránea.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/alcachofa/flor_res_min.jpg"
+                    alt="Foto Alcachofa"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Gracias a los datos facilitados por el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                en las gráficas <b>Volumen Consumo Nacional Alcachofa</b> y <b>Penetración Nacional Alcachofa</b>
+                mostramos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019 y 2020,
+                así como la penetración de la alcachofa en los hogares españoles, respectivamente.
+                Los comportamientos observados en la alcachofa son un tanto diferentes a los vistos en otros
+                productos hortofrutícolas, y es que esta presenta un <b>comportamiento algo desconcertante</b>.
+                Vemos como el volumen de consumo comienza con valores inferiores a años anteriores, experimentando
+                una gran subida y recuperándose en febrero, tras esto en los primeros meses de pandemia, época de
+                principal de la alcachofa, vemos valores oscilando entre los recogidos en 2019 y 2020, por lo que
+                no podemos enlazar rotundamente el comportamiento observado con la crisis sanitaria.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Alcachofa
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Alcachofa
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                El comportamiento que contemplamos en las <b>importaciones y exportaciones</b> realizadas en España
+                durante el periodo comprendido entre enero de 2017 y diciembre de 2020, es similar al del otras frutas
+                y verduras de temporada, oscilando drásticamente entre temporadas.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde encontramos España como socio,
+                analizando la cantidad de producto en valor monetario, observamos que las exportaciones
+                son mayores a las importaciones la gran parte del año, correspondiéndose principalmente con la época de
+                su consumo, al observar con las gracias de volumen y penetración nacional, mientras que las importaciones
+                presentan un pequeño repunte en los meses estivos, posiblemente para cubrir la baja demanda.
+
+                Al comparar los niveles durante el periodo de la pandemia con los años previos,
+                <b>no existen grandes cambios</b> con respecto otros años que nos hagan achacar un efecto negativo
+                de la COVID-19 en las importaciones y exportaciones de alcachofa. Si bien observamos un descenso
+                en el mes de marzo del 20% con respecto el año 2019, podemos justificarlo al ver como en febrero,
+                antes de la irrupción de la pandemia se presentaban de igual forma niveles un 40% inferiores.
+
+                Así pues, no podemos atribuir a la crisis sanitaria el comportamiento que presenta la alcachofa.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Alcachofa
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/alcachofa.json', function (data) {
+                /* -- Volumen Consumo Nacional Alcachofa -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_alcachofas_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Alcachofa -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_alcachofas_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Alcachofa -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["alcachofas_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 0,
+                        max: 4000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+{% endblock %}

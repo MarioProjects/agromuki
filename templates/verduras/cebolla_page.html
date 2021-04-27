@@ -1,0 +1,197 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "verduras/base_hortaliza_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_hortaliza_titulo %}Cebolla{% endblock %}
+{% block nombre_hortaliza %}Cebolla{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_hortaliza %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Cebolla</h3>
+            <p class="mt-4">
+                Junto al ajo, la cebolla es de las primeras verduras de las que se tiene noticia,
+                cultivándose en Asia hace más de 7.000 años. Esta hortaliza ocupa aproximadamente
+                25.000 hectáreas en el territorio español, siendo uno de los cultivos más extendidos.
+                Así, se encuentra como una de las verduras más exportadas a países no comunitarios.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/cebolla/mesa_res_min.jpg"
+                    alt="Foto cebolla"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Gracias a los datos facilitados por el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                en las gráficas <b>Volumen Consumo Nacional Cebolla</b> y <b>Penetración Nacional Cebolla</b>
+                mostramos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019 y 2020,
+                así como el porcentaje de hogares que compran ese producto, respectivamente.
+                Podemos ver cómo, durante la pandemia, particularmente en los meses de excepción (marzo, abril y mayo),
+                la cebolla presenta un comportamiento que ya veíamos en otros productos hortofrutícolas,
+                donde las ventas de este producto aumentaron significativamente.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Principalmente en los mes de marzo y abril, en pleno <b>periodo de excepción</b>,
+                el ascenso en el volumen de consumo se sitúa en torno al 25-45% con respecto a los años 2018 y 2019,
+                mientras que la penetración nacional presenta un aumento del 5% al 10% en abril
+                con respecto a los años anteriores, llegándose a situar en el 80% de penetración.
+                Con ello vemos como la producción de este producto hortofrutícola se ve <b>afectado positivamente</b>
+                por la crisis sanitaria. De nuevo, podemos achacar este comportamiento a que el sector alimentario
+                no paró la cadena de suministro, adaptándose al creciente consumo dado por el miedo
+                al desabastecimiento durante las primeras etapas de la crisis sanitaria.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Cebolla
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Cebolla
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                En cuanto a las <b>importaciones y exportaciones</b> realizadas en España durante el periodo
+                de enero de 2017 a diciembre de 2020 podemos advertir varias cosas.
+
+                Tomando los datos proporcionados por Eurostat con la información referente a
+                las importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que <b>las importaciones
+                han sido bastante estables</b> a lo largo de estos últimos años, con valores máximos en los meses
+                de marzo y abril. tras su recolecta en febrero y marzo donde aumenta su demanda. Por otro lado,
+                las exportaciones se comportan de forma más irregular.
+
+                Al comparar los niveles durante el periodo de la pandemia con los años previos,
+                en el caso de la cebolla observamos que las importaciones y exportaciones se equiparan,
+                suceso que no había sucedido en el marco de tiempo de 4 años estudiado.
+
+                Este nuevo comportamiento podríamos acarrearlo al COVID-19 en cierta forma, pero nos cuesta encontrar
+                motivos ya que tampoco son valores del todo atípicos no acontecidos con anterioridad, pues el pico de
+                importaciones es similar al de abril de 2019 y las exportaciones bajan a valores vistos en 2018.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Cebolla
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/cebolla.json', function (data) {
+                /* -- Volumen Consumo Nacional Cebolla -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_cebollas_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(
+                    volumen_nacional_canvas, volumen_producto_nacionales
+                );
+
+                /* -- Penetración Nacional Cebolla -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_cebollas_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Cebolla -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["cebollas_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 200000,
+                        max: 30000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

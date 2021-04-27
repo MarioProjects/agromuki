@@ -1,0 +1,236 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Naranja{% endblock %}
+{% block nombre_fruta %}Naranja{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Naranja</h3>
+            <p class="mt-4">
+                El origen de la naranja es incierto, si bien ciertos autores lo localizan en China y Japón.
+                En España el naranjo fue difundido por los árabes. Así, fueron los árabes quienes difundieron
+                los agrios por España, propagándolos por jardines, parque y calles,
+                utilizando sus flores en muchas celebraciones religiosas.
+                Por otra parte, la producción de los países mediterráneos se destina en gran parte a abastecer
+                el comercio en fresco del hemisferio norte, más concretamente de la Europa Occidental.
+                Dentro de las frutas, la naranja representa una de las principales producciones por volumen
+                a nivel europeo tras la manzana, con 7 millones de toneladas.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/naranja/abierta_res_min.jpg"
+                    alt="Foto Naranja"
+            >
+
+            <p class="mt-4">
+                La producción de cítricos en España ha experimentado en los últimos años una gran transformación
+                varietal.
+                Actualmente ya casi no quedan naranjas sanguinas y también han desaparecido otras variedades muy
+                prometedoras, al tiempo que han surgido otras nuevas con mucha fuerza, como es el caso de la naranja
+                lane
+                late.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Tras analizar los datos que nos facilita el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                generamos las gráficas para estudiar el <b>Volumen Consumo Nacional Naranja</b> y la
+                <b>Penetración Nacional Naranja</b> en las que vemos la cantidad en miles de kilogramos vendidos
+                en cada mes durante los años 2018, 2019 y 2020, así como la acogida de la naranja en los hogares
+                españoles,
+                respectivamente.
+
+                En un primer lugar, analizando el volumen de consumo nacional de la naranja vemos que los años 2018 y
+                2019 presentan datos muy similares en cuanto a miles de kg vendidos de esta fruta. Si analizamos el año
+                2020 vemos que el comportamiento sigue siendo muy similar menos para el inicio del
+                <b>periodo de excepción</b> (marzo y abril), donde observamos un gran repunte,
+                llegando en abril a distanciarse hasta un 30% con respecto años anteriores.
+                Es un <b>aumento significativo</b> y más si tenemos en cuenta el gran volumen que la naranja
+                mantiene en estos meses. Posteriormente, en mayo vemos como se normaliza la situación y se vuelven a
+                niveles típicos de años pasados. Además, observamos como el consumo de naranja esta
+                afectado considerablemente por la temporada del año, acumulando el primer semestre del año
+                los mayores meses de consumo.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                En lo referente a la penetración nacional de la naranja, 2020 se iniciaba con datos que podríamos
+                calificar
+                de <i>normales</i> con niveles entre los obtenidos en los años 2018 y 2019.
+                Con la llegada de la COVID-19 y la declaración del <b>periodo de excepción</b>,
+                la penetración también sufre un ascenso significativo de en torno el 10% en abril,
+                con respecto a los años 2018 y 2019.
+                Con ello vemos como la producción de esta fruta se ve <b>afectada positivamente</b>
+                ante la crisis sanitaria, achacando este comportamiento a que el sector alimentario
+                no paró la cadena de suministro, pero sí que se produjo un creciente consumo dado por factores como
+                el miedo al desabastecimiento durante las primeras etapas de la crisis sanitaria y el
+                aislamiento domiciliario.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Naranja
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Naranja
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Si estudiamos las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos varios patrones.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las importaciones y las
+                exportaciones
+                siguen patrones ondulantes donde la mayor parte del año, los niveles de exportaciones superan
+                sustancialmente las importaciones, obteniendo picos máximos de exportaciones en los
+                meses de marzo, y máximos de importaciones en septiembre.
+
+                Centrándonos en los niveles durante el periodo de la pandemia con los años previos,
+                vemos que la tendencia en los meses del <b>periodo de excepción</b> tendía a crecer considerablemente
+                en el mes de marzo, comportamiento que se repite en 2020. Así pues,
+                <b>apreciamos un incremento significativo</b> con respecto otros años, concretamente una subida
+                del 32% con respecto los niveles obtenidos en las mismas fechas en 2019,
+                aunque sí que podemos observar que posteriormente, en los meses estivos,
+                los niveles de exportaciones tienden a la normalidad. Por otra parte, con respecto las importaciones,
+                vemos que estas disminuyen ligeramente al comienzo de la pandemia, y crecen tempranamente en junio
+                si lo comparamos con los años previos. Con ello, podemos atribuir este comportamiento a la crisis
+                sanitaria de forma clara e inequívoca, atribuyendo la creciente demanda a la creencia popular de
+                que el consumo de naranja es bueno para resfriados y enfermedades similares debido a su alto
+                contenido en vitamina C.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Naranja
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/naranja.json', function (data) {
+                /* -- Volumen Consumo Nacional Naranja -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_naranjas_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Naranja -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_naranjas_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Naranja -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["naranjas_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 200000,
+                        max: 200000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

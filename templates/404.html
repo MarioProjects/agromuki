@@ -1,0 +1,43 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %} AgroAnalysis - Error {% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+    <div class="h-full flex items-center mt-8 md:mt-0 flex-col items-center justify-center px-5 text-gray-700">
+
+
+        <div class="w-full">
+            <div class="w-8/12 md:w-5/12 xl:w-3/12 2xl:w-2/12 m-auto">
+                <img
+                        alt="{{ icon_alt }}"
+                        class="w-full animate__animated animate__bounceIn"
+                        src="static/icons/lloron11.svg"
+                >
+            </div>
+        </div>
+
+        <div class="w-10/12 md:w-8/12 xl:w-6/12 mt-5 pb-7">
+            <!--<div class="text-6xl font-dark font-bold">404</div>-->
+            <p class="text-2xl md:text-3xl leading-normal text-center font-medium">
+                Lo sentimos, no pudimos encontrar la página.
+            </p>
+            <p class="text-lg md:text-xl mt-6 text-center">
+                Pero no se preocupe, puede encontrar muchas otras cosas en nuestra página de inicio.
+            </p>
+            <div class="flex w-full content-center mt-3">
+                <a href="/" class="text-base md:text-lg m-auto text-blue-500 no-underline hover:underline">
+                    Volver al Inicio
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
+
+{% block js_imports %}
+{% endblock %}

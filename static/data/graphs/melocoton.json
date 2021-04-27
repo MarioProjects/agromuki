@@ -1,0 +1,127 @@
+{
+    "volumen_melocoton_nacionales":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            "datasets": [
+                {
+                    "label": "2018",
+                    "data": [86.1, 141.57, 206.52, 241.97, 4224.78, 19817.35, 32083.95, 33280.38, 30561.74, 16796.19, 3106.42, 172.38],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2019",
+                    "data": [111.93, 143.01, 66.46, 256.07, 5313.74, 18590.89, 30333.47, 30615.07, 30408.48, 19301.67, 3121.27, 222.96],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2020",
+                    "data": [296.82, 97.49, 146.7, 1207.67, 7977.18, 22609.58, 34279.57, 31865.5, 25601.73, 13165.82, 1740.22],
+                    "borderColor": "rgba(60, 186, 159, 0.7)",
+                    "backgroundColor": "rgba(60, 186, 159, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Volumen (miles de kg)"
+                    }
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "penetracion_melocoton_nacionales":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            "datasets": [
+                {
+                    "label": "2018",
+                    "data": [0.34, 0.87, 0.77, 0.89, 16.89, 47.6, 56.63, 55.39, 51.78, 35.31, 10.62, 0.5],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2019",
+                    "data": [0.66, 0.86, 0.41, 1.73, 20.99, 45.56, 55.14, 53.66, 52.5, 37.21, 10.27, 1.13],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2020",
+                    "data": [0.79, 0.57, 0.61, 5.94, 29.14, 50.52],
+                    "borderColor": "rgba(60, 186, 159, 0.7)",
+                    "backgroundColor": "rgba(60, 186, 159, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Penetración (%)"
+                    }
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "melocoton_exportacion_importacion":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero - 2017", "Febrero - 2017", "Marzo - 2017", "Abril - 2017", "Mayo - 2017", "Junio - 2017", "Julio - 2017", "Agosto - 2017", "Septiembre - 2017", "Octubre - 2017", "Noviembre - 2017", "Diciembre - 2017", "Enero - 2018", "Febrero - 2018", "Marzo - 2018", "Abril - 2018", "Mayo - 2018", "Junio - 2018", "Julio - 2018", "Agosto - 2018", "Septiembre - 2018", "Octubre - 2018", "Noviembre - 2018", "Diciembre - 2018", "Enero - 2019", "Febrero - 2019", "Marzo - 2019", "Abril - 2019", "Mayo - 2019", "Junio - 2019", "Julio - 2019", "Agosto - 2019", "Septiembre - 2019", "Octubre - 2019", "Noviembre - 2019", "Diciembre - 2019", "Enero - 2020", "Febrero - 2020", "Marzo - 2020", "Abril - 2020", "Mayo - 2020", "Junio - 2020", "Julio - 2020", "Agosto - 2020", "Septiembre - 2020", "Octubre - 2020", "Noviembre - 2020", "Diciembre - 2020"],
+            "datasets": [
+                {
+                    "label": "Exportaciones",
+                    "data": [710073, 888669, 520722, 8163790, 68172689, 82262866, 79404866, 71709714, 45157922, 14478725, 3071029, 1550775, 957291, 1116019, 729307, 5674439, 50807916, 88126474, 79645869, 88890364, 43449333, 18274850, 3577350, 605872, 664089, 373353, 477384, 7168812, 53421537, 78483182, 81259772, 77126944, 48079290, 15404265, 4392862, 1079245, 559686, 838344, 395993, 12816468, 72672788, 98229392, 87616164, 75266030, 35270332, 9942680, 2613458, 1272241],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "Importaciones",
+                    "data": [246063, 209675, 36820, 314146, 742942, 170470, 206534, 145082, 78588, 70414, 347957, 240633, 194594, 254943, 165992, 280674, 721544, 438217, 553589, 365248, 225642, 248000, 343542, 260074, 143849, 118875, 68162, 341699, 545044, 225437, 189589, 90172, 173833, 179754, 32864, 78183, 257995, 242130, 78130, 72943, 31649, 169268, 107091, 163781, 76480, 305258, 49533, 158710],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Fecha"
+                    }
+                }]
+            }
+        }
+    }
+
+}

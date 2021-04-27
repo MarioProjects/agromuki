@@ -1,0 +1,209 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "verduras/base_hortaliza_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_hortaliza_titulo %}Zanahoria{% endblock %}
+{% block nombre_hortaliza %}Zanahoria{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_hortaliza %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Zanahoria</h3>
+            <p class="mt-4">
+                La zanahoria es una de las verduras más producidas y consumidas en el mundo,
+                Asia es la mayor productora seguida por Europa y los Estados Unidos. De la zanahoria
+                sabemos que beneficia nuestra vista y la salud de nuestra piel,
+                pero su composición rica en vitaminas y minerales reporta otros muchos beneficios para nuestro
+                organismo.
+            </p>
+            <p class="mt-4">
+                Esta hortaliza, junto a la cebolla y el tomate, se encuentra entre las tres producciones estrella
+                de la UE, donde destacan por su producción Reino Unido, Polonia y Holanda. En el caso de España,
+                es Castilla y León la comunidad autónoma que más produce, con una media de 185.000 toneladas.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/zanahoria/mesa_res_min.jpg"
+                    alt="Foto Zanahoria"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Si estudiamos los datos facilitados por el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                en las gráficas <b>Volumen Consumo Nacional Zanahoria</b> y <b>Penetración Nacional Zanahoria</b>
+                mostramos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019 y 2020,
+                así como la acogida de la zanahoria en los hogares españoles, respectivamente.
+                En ambas gráficas podemos observar que el comienzo de la pandemia supone un <b>impacto positivo</b>
+                en el que tanto el volumen como la penetración crecen significativamente.
+                El mes de marzo presenta una subida en la penetración de los hogares más pronunciada que otros
+                productos hortofrutícolas en este mes, siendo en abril su mayor subida distanciándose hasta un 12%
+                de años anteriores, como viene siendo la tónica general.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                En cuanto al volumen del consumo nacional de la zanahoria, 2020 se presentaba con datos ligeramente
+                superiores en sus inicios con respecto años anteriores, con una subida de en torno al
+                8% con respecto, explotando en los meses del <b>periodo de excepción</b> (marzo, abril y mayo),
+                donde el ascenso en el volumen de consumo se sitúa en torno al 30-55% con respecto a los años 2018 y
+                2019.
+                Con ello vemos como la producción de este producto hortofrutícola se ve <b>afectado positivamente</b>
+                ante la crisis sanitaria, achacando de nuevo este comportamiento a que el sector alimentario
+                no paró la cadena de suministro, adaptándose al creciente consumo dado
+                por el miedo al desabastecimiento durante las primeras etapas de la crisis sanitaria.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Zanahoria
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Zanahoria
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, presentan varios puntos que analizar.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las exportaciones
+                siguen un patrón ondulante, un tanto diferente al de otros productos hortofrutícolas,
+                donde vemos un periodo de ascenso mas corto y por lo tanto mas pronunciado.
+
+                Por otra parte, en cuanto a las importaciones, en al tónica general, estas son menores a las
+                exportaciones,
+                como sucede en la mayoría de productos analizados.
+
+                Centrándonos en los niveles durante el periodo de la pandemia con los años previos,
+                <b>no existen grandes perturbaciones a destacar</b>, únicamente, durante <b>abril</b>
+                vemos como las exportaciones se sitúan un 50% superiores a años previos, donde se estabiliza la
+                situación
+                en mayo con valores medios con respecto 2018 y 2019.
+                Este aumento puede parecer significativo pero debido al menor rango que observamos en otros
+                productos hortofrutícolas y su estabilización en mayo, lo podemos catalogar como <b>poco destacable</b>.
+                Así, vemos que la COVID-19 tiene cierto impacto positivo en materia de exportación con lo que respecta
+                a la zanahoria.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Zanahoria
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap md:hidden mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/zanahoria.json', function (data) {
+                /* -- Volumen Consumo Nacional Zanahoria -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_zanahorias_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Zanahoria -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_zanahorias_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Zanahoria -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["zanahorias_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 150000,
+                        max: 20000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

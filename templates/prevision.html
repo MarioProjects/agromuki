@@ -1,0 +1,243 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %} AgroAnalysis - Previsión {% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">Previsión</h1>
+
+            <div class="texted-block mt-6">
+
+                <h3 class="apartado_h3">Análisis predictivo</h3>
+                <p class="mt-4">
+                    La Inteligencia Artificial puede ser utilizada para infinidad de tareas.
+                    Algo interesante que podríamos aplicar sobre los datos con los que disponemos sería
+                    la detección de valores atípicos. Podríamos crear un modelo que aprendiera a detectar anomalías
+                    en los valores de importaciones, exportaciones, volumen, etc.
+                </p>
+
+                <!--<img
+                        class="imagen_producto"
+                        src="static/images/otros/prediccion2_res_min.jpg"
+                        alt="Redes Neuronales"
+                >-->
+
+                <p class="mt-4">
+                    Así, se han utilizado varias redes neuronales con la idea de predecir los valores obtenidos
+                    durante los meses iniciales de la pandemia, de marzo de 2020 a octubre de 2020. Con ello, veremos
+                    cuáles
+                    serían los valores esperados si no se hubiese producido la crisis
+                    sanitaria, y si estos valores difieren mucho de los obtenidos en la realidad. Si distan,
+                    podría ser una herramienta eficaz para cuantificar el impacto de la COVID-19 en el mercado
+                    español hortofrutícola. Las <b>redes neuronales artificiales</b> son
+                    modelos computacionales que aprenden a modelar distribuciones de datos dado un conjunto de
+                    entrenamiento
+                    con el que <i>aprender</i>.
+                    Para nuestro caso, el conjunto de entrenamiento consta de los valores de importaciones y
+                    exportaciones
+                    obtenidos durante el período de tiempo comprendido desde enero de 2016 hasta febrero de 2020, donde
+                    la crisis sanitaria aún no había comenzado.
+                </p>
+
+                <p class="mt-4">
+                    Con estos datos, <b>entrenamos</b> nuestras redes neuronales por separado, una tomando los datos de
+                    importaciones y otra utilizando las exportaciones, que reciben como entrada un período de tiempo
+                    <i>x</i> anterior al período próximo que queremos predecir.
+                    Como período de tiempo previo se ha decidido tomar cinco meses consecutivos,
+                    ventana de tiempo lo suficientemente amplia para modelar correctamente los datos y tener cierto
+                    contexto en los que basar las predicciones, y obtendremos los valores de los tres próximos meses.
+                    Se obtienen todas las posibles combinaciones de cinco meses consecutivos con
+                    sus tres consiguientes y se inicia el proceso de aprendizaje.
+                    Dicho proceso de aprendizaje se realiza mediante la minimización de la suma de errores cuadráticos
+                    entre la diferencia de los valores que la red predice para una entrada dada y los valores esperados,
+                    mediante el método de descenso por gradiente.
+                </p>
+
+                <p class="mt-4">
+                    Una vez entrenados los modelos solo nos queda <b>predecir</b>. Para ello, como explicamos
+                    anteriormente, tomamos los cinco meses anteriores a marzo de 2020, mes inicial de la COVID-19,
+                    y obtenemos los valores esperados para marzo, abril y mayo, de 2020. Reutilizando los valores
+                    predichos más los dos meses previos requeridos para hacer un total de cinco, volvemos a predecir,
+                    y siguiendo este método iterativo podemos obtener tantas predicciones para meses posteriores como
+                    se necesiten. Se ha optado por obtener valores hasta octubre de 2020 y es que, conforme se van
+                    reutilizando valores y basando las predicciones futuras en predicciones realizadas los resultados
+                    tienden a degradarse y es necesario establecer cierto compromiso entre la calidad de las
+                    predicciones
+                    y cuán grande es el período de tiempo que deseamos predecir.
+                </p>
+
+                <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                    <div class="w-full xl:w-1/2 mt-6">
+                        <p class="text-xl pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Exportación Prevista España
+                        </p>
+                        <div class="p-6"> <!-- bg-white  -->
+                            <canvas id="exportacion_prevista_nacional" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="w-full xl:w-1/2 mt-6">
+                        <p class="text-xl pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Importación Prevista España
+                        </p>
+                        <div class="p-6"> <!-- bg-white -->
+                            <canvas id="importacion_prevista_nacional" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-4">
+                    En las <b>gráficas</b> de <b>Exportación Prevista España</b> e <b>Importación Prevista España</b>
+                    mostramos los datos reales proporcionados por <a href="https://ec.europa.eu/eurostat/data/database"
+                                                       title="Eurostat Importaciones Exportaciones Detallado"
+                                                       target="_blank" class="link_web">Eurostat</a> referentes exportaciones e importaciones españolas para el período de enero de 2019 a octubre de 2020,
+                    así como los valores previstos para dicho marco de tiempo.
+                    Se ha separado con una división roja el período previo a la pandemia, parte izquierda, de donde las
+                    redes neuronales
+                    han tomado los datos para entrenar y vemos cómo se ajustan estrechamente a los datos obtenidos,
+                    y en la parte derecha el período de la pandemia, a partir de febrero de 2020.
+                </p>
+
+                <p class="mt-4">
+                    En la gráfica de exportaciones podemos observar como la previsión realizada para el período de la pandemia
+                    es bastante similar a los valores obtenidos realmente. Aún con esto, podemos observar como
+                    en el mes de abril y período estivo se prevé una importación en torno un 10% inferior a lo realmente
+                    obtenida.
+                    Esto mostraría un <b>impacto ciertamente positivo</b> de la COVID-19 en los valores de exportaciones
+                    hortofrutícolas esperadas. Y es que, como venimos viendo en las páginas de <a href="/frutas"
+                                                                                                  class="underline">Frutas</a>
+                    y
+                    <a href="/verduras" class="underline">Verduras</a>, o en la gráfica de <b>Importaciones y
+                    Exportaciones
+                    Españolas</b> en la página de <a href="/verduras" class="underline">Conclusiones</a>,
+                    se esperaba en 2020 una tendencia ligeramente alcista, pero la aparición de la
+                    COVID-19 trastocó toda previsión como podemos ver en la gráfica. Esto realza la fuerza y poder de
+                    adaptación de este sector, anteponiéndose a todo tipo de adversidades, como distintas medidas
+                    restrictivas tomadas por los gobiernos frente la crisis sanitaria, imponiendo, por ejemplo,
+                    controles en
+                    los pasos fronterizos causando importantes retenciones que perjudicaron las transacciones,
+                    sobre todo en los comienzos de la pandemia (<a
+                        href="https://cincodias.elpais.com/cincodias/2020/03/17/companias/1584471888_430468.html"
+                        title="Cinco Dias" target="_blank" class="link_web">diario Cinco Días</a>).
+                </p>
+
+                <p class="mt-4">
+                    Por otra parte, en cuanto a la previsión de las importaciones, esta presenta valores más conservadores que los
+                    realmente obtenidos durante el primer cuatrimestre de la pandemia, hacia valores similares a los
+                    obtenidos en el mismo período durante 2019, pero los datos de importaciones realmente obtenido durante el período de la pandemia se presentan hasta un 38% mayores,
+                    achacando este suceso al aumento de la demanda que observamos en los inicios de la crisis sanitaria
+                    (véanse las secciones de <a href="/frutas" class="underline">Frutas</a>,
+                    <a href="/verduras" class="underline">Verduras</a> y <a href="/conclusiones" class="underline">Conclusiones</a>.
+                </p>
+
+
+                <div class="flex flex-wrap md:hidden mt-7 text-gray-600 italic">
+                    <div class="w-full mt-6 mb-6">
+                        <p>
+                            (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                            se necesita una pantalla mayor. Sentimos las molestias.)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+{% endblock %}
+
+{% block js_imports %}
+
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            let nav_actual = $(".prevision_nav_item");
+            active_current_nav(nav_actual);
+
+            $.getJSON('../../static/data/graphs/prevision.json', function (data) {
+
+                /* -- Exportación Prevista España -- */
+                const exp_prev_es_canvas = document.getElementById("exportacion_prevista_nacional")
+                const exportacion_prevista = data["exportacion_prevista"]
+                exportacion_prevista["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return data.datasets[tooltipItems[0].datasetIndex].label.split(" ")[1] + ' | ' + tooltipItems[0].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_prevista["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 400000000.0,
+                        max: 1800000000.0,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                let line_chart_exportacion_prevista = new Chart(
+                    exp_prev_es_canvas, exportacion_prevista
+                );
+
+                /* -- Importación Prevista España -- */
+                const imp_prev_es_canvas = document.getElementById("importacion_prevista_nacional")
+                const importacion_prevista = data["importacion_prevista"]
+                importacion_prevista["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return data.datasets[tooltipItems[0].datasetIndex].label.split(" ")[1] + ' | ' + tooltipItems[0].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                importacion_prevista["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 150000000.0,
+                        max: 350000000.0,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                let line_chart_importacion_prevista = new Chart(
+                    imp_prev_es_canvas, importacion_prevista
+                );
+
+            });
+
+        });
+
+    </script>
+
+{% endblock %}

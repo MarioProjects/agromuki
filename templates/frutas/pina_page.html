@@ -1,0 +1,202 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Piña{% endblock %}
+{% block nombre_fruta %}Piña{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Piña</h3>
+            <p class="mt-4">
+                La piña tiene forma cilíndrica, una corteza escamosa de color marrón, una corona de hojas espinosas
+                y una pulpa amarilla. Esta exótica fruta se forma de muchas frutas pequeñas que se funden juntas.
+                Es una fruta tropical originaria de América del Sur. No se sabe con certeza el país donde se dio
+                origen, pero los estudios señalan a Brasil, Paraguay y Argentina. De ahí se propagó principalmente
+                al Amazonas, Venezuela y Perú para luego emigrar a Europa y Asia.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/pina/frente_res_min.jpg"
+                    alt="Foto Piñas"
+            >
+
+            <p class="mt-4">
+                Así pues, observamos como los cultivos de frutas subtropicales se van afianzando dentro de la
+                agricultura española, registrando en 2019 nueve hectáreas dedicadas al cultivo de la piña tropical,
+                según los datos del Ministerio de Agricultura.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Para analizar los efecto de la COVID-19 tomaremos los datos que nos facilita el Ministerio de Agricultura,
+                Pesca y Alimentación (MAPA), que nos permiten generar las gráficas para estudiar el
+                <b>Volumen Consumo Nacional Piña</b> y la <b>Penetración Nacional Piña</b>
+                en las que vemos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019
+                y 2020, así como la acogida de la piña en los hogares españoles, respectivamente.
+
+                En primer lugar podemos ver como la piña es un tanto diferente a otras frutas de temporada y es que
+                su consumo, más o menos, se mantiene a lo largo del año, siendo agosto su peor mes en cuanto a consumo.
+                Además, observamos una gran subida en diciembre que viene propiciada a que este producto hortofrutícola
+                es un postre clásico de la Navidad, <a class="link_web"
+                                                       href="http://www.vidamediterranea.es/pina-la-fruta-que-era-un-lujo-en-navidad/"
+                                                       target="_blank">Vida Mediterránea</a>.
+
+                Con ello, vemos como 2020 se presentaba por debajo de los valores obtenidos en los años previos,
+                hasta marzo de 2020, coincidiendo con el comienzo del <b>periodo de excepción</b>, donde los valores
+                retoman fuertemente el mercado y consiguen sobrepasar por un 37% los valores obtenidos referentes
+                a volumen de consumo, y en torno un 4% de penetración, con respecto en los años previos para el mes
+                de abril. Con ello vemos como el <b>aumento de consumo</b> generalizado también se da en la piña.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Piña
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Piña
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Con lo correspondiente a las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos que las importaciones
+                son superiores a las exportaciones, algo atípico. Esto es debido a que la piña es una fruta tropical
+                y necesita un clima tropical que España no posee y hace no es posible explotar tanto este producto.
+                Con ello, para suplir las necesidades, las importaciones se sitúan por encima de las exportaciones.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde España interviene como socio,
+                analizando la cantidad de producto en valor monetario, observamos durante el <b>periodo de excepción</b>
+                y los meses siguientes que las exportaciones se sitúan en niveles inferiores a los de 2019, aun viendo
+                como el inicio de 2020 se presentaba muy similar a años anteriores. Con respecto a las importaciones,
+                si que vemos en marzo un pico que veíamos posteriormente reflejado en el mes de abril analizando
+                el volumen de consumo y penetración en el hogar español. Así pues, la variabilidad general que vemos
+                en materia de importación y exportación no nos permite atribuir efectos significativos de forma clara,
+                como si sucede en otros productos hortofrutícolas, de la crisis sanitaria en la comercialización de la
+                piña.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Piña
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/pina.json', function (data) {
+                /* -- Volumen Consumo Nacional Piña -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_pina_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Piña -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_pina_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Piña -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["pina_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 0,
+                        max: 18000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,214 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Aguacate{% endblock %}
+{% block nombre_fruta %}Aguacate{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información del Aguacate</h3>
+            <p class="mt-4">
+                El aguacate es un árbol originario de México. Los conquistadores debieron traer el aguacate a
+                España sobre el año 1600, pues se tienen datos del árbol en el Jardín Botánico de Valencia
+                y sobre alguna plantación en la provincia de Málaga en 1770. Asimismo, hubo comerciantes indianos
+                y de familias acomodadas que en los siglos XVIII y XIX se trajeron a España ejemplares de
+                árboles para dar sombra a sus jardines. Posteriormente, empezó su distribución a nivel mundial.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/aguacate/partido_res_min.jpg"
+                    alt="Foto Aguacate"
+            >
+
+            <p class="mt-4">
+                En 1924 empezó a implantarse en Málaga, la Estación de Agricultura Meridional,
+                donde en su proyecto inicial se habla de la introducción de frutales exóticos.
+                Es al incorporarse la estación experimental de Torrox cuando se establece un semillero inicial
+                de aguacates hacia los años 30.
+                Tanto es así que Málaga lleva ya más de medio siglo cultivando aguacates,
+                un fruto que Europa no deja de demanda y cuyo aceite posee tal contenido de ácidos
+                grasos monoinsaturados que es comparable con el del aceite de oliva en cuanto a su calidad nutricional.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Gracias a los datos que nos facilita el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                podemos generar gráficas para estudiar el <b>Volumen Consumo Nacional Aguacate</b> y la
+                <b>Penetración Nacional Aguacate</b> en las que vemos la cantidad en miles de kilogramos vendidos
+                en cada mes durante los años 2018, 2019 y 2020, así como la acogida del aguacate en los hogares
+                españoles,
+                respectivamente.
+
+                Algo que destaca a la vista es la baja penetración de este producto en España, con máximas que no
+                alcanzan el 5% de penetración nacional. Esto podría explicar la 'variabilidad' que parece mostrar la
+                gráfica a lo largo de los diferentes años, pero realmente son oscilaciones mínimas teniendo en cuenta
+                que estas no llegan ni al 2%.
+
+                Así, siguiendo con la penetración del aguacate en los hogares españoles, si comparamos los datos
+                obtenidos durante el comienzo del <b>periodo de excepción</b> (marzo, abril y mayo) con los
+                alcanzados en años anteriores, vemos que realmente <b>no hay un incremento significativo</b> que podamos
+                atribuir a la crisis sanitaria.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Por otra parte, en 2020, el volumen del consumo nacional del aguacate presenta durante el periodo
+                de excepción una subida de en torno el 25% en el mes de abril, subida que si analizamos los meses
+                contiguos sitúan los valores del volumen de consumo nacional de aguacate inferiores a los obtenidos en
+                años anteriores. Es por ello que no podemos apropiar este ascenso que vemos en abril a la crisis
+                sanitaria,
+                ya que vemos variaciones similares a lo largo del año entre el periodo de tiempo estudiado.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Aguacate
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Aguacate
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Por otra parte, si estudiamos las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre marzo de 2017 y diciembre de 2020, no encontramos tan fácilmente
+                los patrones que encontramos para otros productos hortofrutícolas.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las exportaciones
+                siguen cierto patrón ondulante con picos máximos alrededor del mes de marzo. Tras este pico, los
+                valores bajan progresivamente hasta julio y suben de nuevo.
+
+                Por otra parte, las importaciones obtienen sus valores máximos en los meses estivos,
+                pero tampoco siguen un patrón tan marcado como otros productos.
+
+                Observando los niveles durante el periodo de la pandemia y comparándolos con los años previos,
+                vemos que <b>no existen cambios significativos</b> con respecto otros años, viendo como continua
+                esta tendencia ligeramente alcista del cual destaca un pico máximo en el mes de marzo, en materia
+                de exportaciones. Puede que este producto no se vea afectado, o al menos en gran medida, debido a su
+                baja penetración que convierte el aguacate en un producto no muy popular en la sociedad española.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Aguacate
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/aguacate.json', function (data) {
+                /* -- Volumen Consumo Nacional Aguacate -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_aguacates_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Aguacate -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_aguacates_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Aguacate -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["aguacates_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 10000000,
+                        max: 60000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

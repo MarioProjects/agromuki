@@ -1,0 +1,249 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "verduras/base_hortaliza_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_hortaliza_titulo %}Tomate{% endblock %}
+{% block nombre_hortaliza %}Tomate{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_hortaliza %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">El liderazgo del Tomate</h3>
+            <p class="mt-4">Dentro de las verduras, el tomate en sus diferentes versiones (para consumo en fresco,
+                industria, etc.), es el que más terreno ocupa: en 2019 un total de 57.400 hectáreas de las que
+                la mayor parte eran de tomate para uso industrial. Comparados con los datos de 2018, en 2019
+                se apreció un aumento en la superficie general, pero un descenso en la de tomate para industria.
+            </p>
+
+            <h3 class="apartado_h3">Comercio Exterior</h3>
+            <p>
+                En 2019, el tomate dejó de ser la hortaliza más exportada en volumen tras varios años de caídas,
+                pero se mantuvo en el segundo lugar. Al finalizar el año se habían exportado 767.368 toneladas
+                (un 6,5% menos que en 2018).
+            </p>
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/tomato/varios_res_min.jpg"
+                    alt="Foto tomate cortado"
+            >
+            <p class="mt-6 lg:mt-3">
+                En la Unión Europea, el cultivo de verduras ocupó cerca de 2,3 millones de hectáreas el año 2019.
+                La producción comunitaria de verduras ronda los 60 millones de toneladas anuales y
+                las tres producciones estrella son el <b>tomate</b>, la cebolla y la zanahoria.
+                A este respecto, el principal cultivo hortícola de la UE es el tomate.
+                España, junto a Italia, suma más del 65% de la producción comunitaria de tomate.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Por países, la producción de tomate fresco está liderada por España, seguida de Holanda.
+                En tomate industrial destaca Italia, seguida de España. Y en conjunto, otros países con
+                producción de tomate son también Francia, Grecia y Portugal.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Las ventas al exterior de tomates incrementaron hasta las 118.000 toneladas.
+                Los países de destino del tomate comunitario son Suiza, Bielorrusia, Rusia y Arabia Saudí.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                La <b>balanza</b> comercial para el tomate es <b>negativa</b>, pese a la gran producción comunitaria.
+                En 2019, se importaron 647.000 toneladas, unas 17.000 más que un año antes.
+            </p>
+
+
+            <h3 class="apartado_h3">Consumo y Gasto en Verduras Frescas</h3>
+            <p>
+                El consumo más notable se asocia a los tomates (<b>13,3 kilos por persona y año</b>),
+                lo que representa un 23,4% del consumo total de verduras frescas. En términos de gasto,
+                los tomates concentran el 20% con un total de <b>22,5 euros por persona</b>.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                En la familia de verduras frescas, la evolución del consumo per cápita desde hace unos años
+                ha sido desigual para cada tipo de producto. Para el caso del tomate,
+                se puede apreciar que se producen <b>descensos en su consumo</b>.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Desde el punto de vista de consumo y gasto en frutas y verduras transformadas, el tomate destaca,
+                con un consumo per cápita de 5,2 kilos al año, representando un 25,7% del total de los
+                productos hortofrutícolas transformados (7,2 euros per cápita).
+            </p>
+
+
+            <h3 class="apartado_h3">Conservas Vegetales</h3>
+            <p>
+                La conserva vegetal más importante en términos del volumen comercializado es la del
+                tomate entero y triturado, ya que acapara cerca del <b>34% de totas las ventas en volumen y
+                en torno al 15% en valor</b>.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Por otra parte, las marcas de distribución (MDD) son importantes entre las ofertas más consolidadas
+                de este mercado. Es el caso, por ejemplo, de las conservas de tomate triturado y pelado donde
+                llegan hasta el 81,7% del total de ventas en volumen.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Si observamos los datos facilitados por el Ministerio de Agricultura, Pesca y Alimentación (MAPA)
+                en las gráficas de <b>Volumen Consumo Nacional Tomate</b> y <b>Penetración Nacional Tomate</b>,
+                en las que se muestra en las que se muestra la cantidad en miles de kilogramos vendidos
+                en cada mes durante los años 2018, 2019 y 2020, así como el porcentaje de hogares que
+                compran ese producto, respectivamente, podemos ver como en la pandemia, particularmente
+                en los meses de excepción (marzo, abril y mayo) las ventas de este producto aumentaron
+                significativamente.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                En abril, la subida en el volumen de consumo se sitúa en torno al 25-35% con respecto a
+                los años 2018 y 2019, mientras que la penetración nacional mantiene una media de aumento del 5%
+                con respecto a los años anteriores. Con ello vemos como la producción de este producto
+                hortofrutícola se ve <b>afectado positivamente</b> por la crisis sanitaria.
+                Podemos achacar esto a que el sector alimentario no tuvo ningún parón en la cadena de suministro y
+                tanto por el caos formado ante esta incierta situación que condujo a muchas familias a abastecerse
+                ante el miedo a la falta de alimentos, tanto a quedarse en casa y consumir más en su lugar de
+                residencia,
+                vemos estos aumentos en un producto como es el tomate de primera necesidad.
+            </p>
+
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Tomate
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_tomates_nacionales" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Tomate
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_tomates_nacionales" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                En cuanto a las <b>importaciones y exportaciones</b> realizadas en España durante el periodo de enero
+                de 2017 a diciembre de 2020 cabe destacar varios aspectos. Podemos ver como las exportaciones,
+                cómo es lo normal en los productos hortofrutícolas, son significativamente mayores a las importaciones
+                siguiendo un patrón ondulante con picos máximos en los primeros meses del año.
+
+                Por otra parte, durante el <b>periodo de excepción</b>
+                vemos como las importaciones se mantienen constantes, y las exportaciones siguen el comportamiento
+                previsto bajista, obteniendo datos similares a los observados en 2019 en las mismas fechas.
+                Con él, vemos que el tomate no se ve afectado en materia de importación y exportación por
+                la crisis sanitaria, y es que el sector siguió trabajando con normalidad abasteciendo y proveyendo
+                a toda la población.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Tomate
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="tomates_exportacion_importacion" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap lg:hidden mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/tomate.json', function (data) {
+                /* -- Volumen Consumo Nacional Tomate -- */
+                const vol_tom_es_canvas = document.getElementById("volumen_tomates_nacionales")
+                const volumen_tomates_nacionales = data["volumen_tomates_nacionales"]
+                volumen_tomates_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_tomates_nacionales = new Chart(
+                    vol_tom_es_canvas, volumen_tomates_nacionales
+                );
+
+                /* -- Penetración Nacional Tomate -- */
+                const penetracion_tom_es_canvas = document.getElementById("penetracion_tomates_nacionales")
+                const penetracion_tomates_nacionales = data["penetracion_tomates_nacionales"]
+                penetracion_tomates_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_tomates_nacionales = new Chart(
+                    penetracion_tom_es_canvas, penetracion_tomates_nacionales
+                );
+
+                /* -- Exportación e Importación Tomate -- */
+                const expimp_tom_es_canvas = document.getElementById("tomates_exportacion_importacion")
+                const tomates_exportacion_importacion = data["tomates_exportacion_importacion"]
+                tomates_exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                tomates_exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 5000000,
+                        max: 160000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                tomates_exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_tomates_exportacion_importacion = new Chart(
+                    expimp_tom_es_canvas, tomates_exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

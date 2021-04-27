@@ -1,0 +1,204 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Pimiento{% endblock %}
+{% block nombre_fruta %}Pimiento{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Pimiento</h3>
+            <p class="mt-4">
+                El pimiento es una hortaliza de forma, tamaño y color variable. Puede ser verde, rojo, amarillo,
+                naranja e incluso ¡negro! Su sabor puede ser dulce o picante y se consume en fresco, en conserva, etc.
+                El pimiento se consume crudo, cocido y asado; como guarnición en gran variedad de platos.
+            </p>
+            <p class="mt-4">
+                Este se encuentra en tercera posición en términos de gasto, alcanzando el 8.8% del gasto total
+                en verduras frescas (9.4 euros por persona, aproximadamente).
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/pimiento/dos_res_min.jpg"
+                    alt="Foto Pimiento"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                El Ministerio de Agricultura, Pesca y Alimentación (MAPA), nos proporciona los datos del
+                <b>Volumen Consumo Nacional Pimiento</b> y <b>Penetración Nacional Pimiento</b> que nos permiten crear
+                las diferentes gráficas. En estas mostramos la cantidad en miles de kilogramos vendidos
+                en cada mes durante los años 2018, 2019 y 2020, así como la penetración del pimiento
+                los hogares españoles, respectivamente.
+                En ambas gráficas podemos observar que el año 2020 comienza con unos datos similares a los de
+                años anteriores, y que, el comienzo de la pandemia supone un <b>impacto positivo</b>
+                donde, tanto el volumen como la acogida del pimiento crecen significativamente.
+                El mes de marzo presenta una subida leve en ambos factores, pero es en el mes de abril
+                donde este experimenta su mayor crecida. Mirando la penetración, la subida es de hasta un 10%
+                con respecto los años anteriores, como viene siendo la tónica general.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                En cuanto al volumen del consumo nacional del pimiento, 2020 presenta datos ligeramente
+                superiores durante todo el año, con una subida de en torno el 15% en marzo,
+                llegando a un 30% en abril. Estos picos se producen
+                en los meses del <b>periodo de excepción</b> (marzo, abril y mayo), donde el ascenso
+                en el volumen de consumo llega a un pico del 22% con respecto a los años 2018 y 2019.
+                Con ello vemos como la producción de este producto hortofrutícola se ve <b>afectado positivamente</b>
+                ante la crisis sanitaria, achacando de nuevo este comportamiento a que el sector alimentario
+                no paró la cadena de suministro, adaptándose al creciente consumo dado
+                por el miedo al desabastecimiento durante las primeras etapas de la crisis sanitaria.
+                Aun así, cabe destacar que, aunque los efectos son claros, estos son menores que los vistos en otros
+                productos hortofrutícolas.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Pimiento
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Pimiento
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Teniendo en cuenta las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, podemos observar varios factores.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las exportaciones son
+                significativamente superiores a las importaciones. Además, vemos que este producto hortofrutícola
+                esta claramente marcado por la época del año, presentando importantes fluctuaciones que llevan
+                a picos máximos en los primeros meses del año.
+
+                Con lo que refiere a los niveles durante el periodo de la pandemia y comparándolos con los años previos,
+                <b>existe una leve subida</b> en las exportaciones que entra dentro de los márgenes normales, incluso
+                más conservadora que la producida entre los años de 2018 y 2019. Si comparamos mes a mes, vemos pues que
+                las exportaciones son muy similares entre los años 2019 y 2020, y así, la crisis sanitaria
+                no representa un gran efecto sobre este producto. Esto pasa de forma similar en cuanto a los valores
+                obtenidos en materia de importación.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Pimiento
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/pimiento.json', function (data) {
+                /* -- Volumen Consumo Nacional Pimiento -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_pimientos_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Pimiento -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_pimientos_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Pimiento -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["pimientos_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 500000,
+                        max: 180000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

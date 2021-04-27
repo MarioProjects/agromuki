@@ -1,0 +1,205 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Kiwi{% endblock %}
+{% block nombre_fruta %}Kiwi{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Kiwi</h3>
+            <p class="mt-4">
+                Aunque el kiwi es ahora un habitante habitual de las estanterías de supermercados,
+                no siempre ha sido así. Esta fruta tiene su origen en el Extremo Oriente y
+                lleva muchos siglos cultivándose en China. No fue hasta principios del siglo XX, en 1904,
+                que el kiwi llegó a las costas de Nueva Zelanda, cuando la neozelandesa Isabel Fraser se
+                trajo unas cuantas semillas de kiwi de uno de sus viajes.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/kiwi/abierto_res_min.jpg"
+                    alt="Foto Kiwis"
+            >
+
+            <p class="mt-4">
+                En cuanto a la situación del kiwi en España, la producción de este creció en 2019 hasta las 25.000
+                toneladas (2.000 toneladas más que en 2018). La producción de kiwi se concentra en el norte de España,
+                principalmente en Galicia y Asturias, dedicando en 2019 una superficie de 1.724 hectáreas.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Para analizar los efecto de la COVID-19 tomaremos los datos que nos facilita el Ministerio de Agricultura,
+                Pesca y Alimentación (MAPA), que nos permiten generar las gráficas para estudiar el
+                <b>Volumen Consumo Nacional Kiwi</b> y la <b>Penetración Nacional Kiwi</b>
+                en las que vemos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019
+                y 2020, así como la acogida de la kiwi en los hogares españoles, respectivamente.
+
+                Por una parte, analizando el volumen de consumo nacional de la kiwi vemos que esta fruta, al igual
+                que muchas otras, sufre variaciones dependiendo de la temporada en la que nos encontremos, siendo
+                la temporada de verano la peor para este producto.
+                Los años 2018 y 2019 presentan datos muy similares en cuanto a miles de kg vendidos de esta fruta y
+                penetración en el hogar nacional.
+                Si analizamos el año 2020 vemos que este comienza con datos ligeramente superiores a años anteriores
+                viendo en el el ecuador del <b>periodo de excepción</b>, el mes de abril,
+                donde observamos el mayor aumento distanciándose hasta un 36% con respecto años anteriores en materia
+                de volumen de consumo, y un 7% en cuanto a penetración nacional.
+
+                Es un <b>aumento importante</b> donde, posteriormente, en mayo vemos como se normaliza la situación y
+                se vuelven a niveles típicos de años pasados.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Kiwi
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Kiwi
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Con lo correspondiente a las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos que el kiwi mantiene ciertas
+                fluctuaciones que se mantienen dentro de unos rangos de valores más o menos estables.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde España interviene como socio,
+                analizando la cantidad de producto en valor monetario, observamos que, a diferencia de la mayoría de
+                los productos hortofrutícolas, las exportaciones se sitúan por debajo ede las importaciones durante
+                todo el año.
+
+                Centrándonos en los niveles obtenidos durante el periodo de la pandemia,
+                vemos que la tendencia en los meses del <b>periodo de excepción</b> con respecto las importaciones
+                los valores se disparan significativamente en mayo, més de mayor importación del año, que crece un
+                50% con respecto años anteriores. Dicha subida también se experimenta en materia de exportaciones,
+                alcanzando niveles 3 veces superiores, algo no tan desproporcionado teniendo en cuenta que los valores
+                de las exportaciones son muy bajos. Con ello, podemos confirmar un <b>impacto claro</b> en el consumo
+                del kiwi que comienza en mayo de 2020 y se prolonga en meses posteriores. Esto viene dado a
+                que el virus obligaría a encerrar a la población en sus casas y cambiar los hábitos de compra, como
+                venimos viendo en el resto de productos hortofrutícolas.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Kiwi
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/kiwi.json', function (data) {
+                /* -- Volumen Consumo Nacional Kiwi -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_kiwi_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Kiwi -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_kiwi_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Kiwi -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["kiwi_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 0,
+                        max: 45000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

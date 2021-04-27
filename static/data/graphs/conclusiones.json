@@ -1,0 +1,283 @@
+{
+    "top3_penetracion_maxima":{
+        "type": "bar",
+        "data": {
+            "labels": ["2018", "2019", "2020"],
+            "datasets": [
+                {
+                    "label": "Tomate",
+                    "backgroundColor": "rgba(255, 99, 132, 0.3)",
+                    "borderColor": "rgba(255, 99, 132, 1)",
+                    "borderWidth": 1,
+                    "data": [83.1, 83.81, 87.73]
+                },
+                {
+                    "label": "Patata",
+                    "backgroundColor": "rgba(255, 159, 64, 0.3)",
+                    "borderColor": "rgba(255, 159, 64, 1)",
+                    "borderWidth": 1,
+                    "data": [80.43, 80.93, 86.8]
+                },
+                {
+                    "label": "Plátano",
+                    "backgroundColor": "rgba(54, 162, 235, 0.3)",
+                    "borderColor": "rgba(54, 162, 235, 1)",
+                    "borderWidth": 1,
+                    "data": [82.92, 80.88, 87.58]
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Penetración Nacional (%)"
+                    },
+                    "position": "left",
+                    "ticks": {
+                        "min": 70,
+                        "max": 90
+                    }
+
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Año"
+                    }
+                }]
+            }
+        }
+    },
+
+    "top3_penetracion_media_excepcion":{
+        "type": "bar",
+        "data": {
+            "labels": ["2018", "2019", "2020"],
+            "datasets": [
+                {
+                    "label": "Tomate",
+                    "backgroundColor": "rgba(255, 99, 132, 0.3)",
+                    "borderColor": "rgba(255, 99, 132, 1)",
+                    "borderWidth": 1,
+                    "data": [80.96, 81.03, 86.35]
+                },
+                {
+                    "label": "Patata",
+                    "backgroundColor": "rgba(255, 159, 64, 0.3)",
+                    "borderColor": "rgba(255, 159, 64, 1)",
+                    "borderWidth": 1,
+                    "data": [79.85, 79.79, 85.23]
+                },
+                {
+                    "label": "Plátano",
+                    "backgroundColor": "rgba(54, 162, 235, 0.3)",
+                    "borderColor": "rgba(54, 162, 235, 1)",
+                    "borderWidth": 1,
+                    "data": [82.27, 80.75, 85.75]
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Penetración Nacional (%)"
+                    },
+                    "position": "left",
+                    "ticks": {
+                        "min": 70,
+                        "max": 90
+                    }
+
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Año"
+                    }
+                }]
+            }
+        }
+    },
+
+    "top3_volumen_maximos_historial":{
+        "type": "bar",
+        "data": {
+            "labels": ["2018", "2019", "2020"],
+            "datasets": [
+                {
+                    "label": "Tomate",
+                    "backgroundColor": "rgba(255, 99, 132, 0.3)",
+                    "borderColor": "rgba(255, 99, 132, 1)",
+                    "borderWidth": 1,
+                    "data": [80.96, 81.03, 86.35]
+                },
+                {
+                    "label": "Patata",
+                    "backgroundColor": "rgba(255, 159, 64, 0.3)",
+                    "borderColor": "rgba(255, 159, 64, 1)",
+                    "borderWidth": 1,
+                    "data": [79.85, 79.79, 85.23]
+                },
+                {
+                    "label": "Sandia",
+                    "backgroundColor": "rgba(54, 162, 235, 0.3)",
+                    "borderColor": "rgba(54, 162, 235, 1)",
+                    "borderWidth": 1,
+                    "data": [82.27, 80.75, 85.75]
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Penetración Nacional (%)"
+                    },
+                    "position": "left",
+                    "ticks": {
+                        "min": 70,
+                        "max": 90
+                    }
+
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Año"
+                    }
+                }]
+            }
+        }
+    },
+
+
+    "top3_volumen_maximos_historial":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero - 2018", "Febrero - 2018", "Marzo - 2018", "Abril - 2018", "Mayo - 2018", "Junio - 2018", "Julio - 2018", "Agosto - 2018", "Septiembre - 2018", "Octubre - 2018", "Noviembre - 2018", "Diciembre - 2018", "Enero - 2019", "Febrero - 2019", "Marzo - 2019", "Abril - 2019", "Mayo - 2019", "Junio - 2019", "Julio - 2019", "Agosto - 2019", "Septiembre - 2019", "Octubre - 2019", "Noviembre - 2019", "Diciembre - 2019", "Enero - 2020", "Febrero - 2020", "Marzo - 2020", "Abril - 2020", "Mayo - 2020", "Junio - 2020", "Julio - 2020", "Agosto - 2020", "Septiembre - 2020", "Octubre - 2020", "Noviembre - 2020"],
+            "datasets": [
+                {
+                    "label": "Naranja",
+                    "data": [96414.9, 87715.83, 97836.07, 94388.69, 87076.13, 60657.43, 36184.19, 27808.13, 28861.28, 38313.49, 58300.7, 66397.9, 90555.5, 86560.42, 96625.02, 87111.72, 80403.42, 55608.45, 39744.93, 28009.87, 27671.7, 35541.63, 55974.28, 66124.7, 83856.23, 85997.39, 106709.0, 124241.2, 92190.21, 49736.3, 33012.21, 22936.44, 26007.96, 39240.26, 60360.94],
+                    "backgroundColor": "rgba(255, 99, 132, 1)",
+                    "borderColor": "rgba(255, 99, 132, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Patata",
+                    "data": [108430.72, 101633.34, 111978.64, 107954.27, 105696.43, 106137.65, 107767.93, 100252.35, 107399.38, 118828.76, 102803.4, 111273.02, 109465.69, 99731.9, 106250.4, 105168.17, 109573.5, 101392.61, 112316.35, 103976.44, 103605.26, 109126.01, 107635.34, 105495.73, 101985.34, 107378.9, 144056.38, 153817.66, 138387.73, 118550.07],
+                    "backgroundColor": "rgba(255, 159, 64, 1)",
+                    "borderColor": "rgba(255, 159, 64, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Sandia",
+                    "data": [266.36, 335.46, 2002.88, 6149.65, 28116.87, 69532.98, 91616.98, 85835.25, 58114.64, 13908.89, 1791.9, 207.32, 314.82, 212.63, 2588.98, 7113.98, 42600.56, 81424.87, 102957.1, 81609.27, 44201.5, 8994.55, 969.83, 373.85, 55.65, 464.47, 2020.78, 7902.54, 50005.58, 93346.52, 121701.3, 99670.37, 51830.72, 9421.45, 637.46],
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Volumen (miles de kg)"
+                    },
+                    "position": "left",
+                    "ticks": {
+                        "min": 0,
+                        "max": 160000
+                    }
+
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "volumen_acumulado_maximos_historial":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero - 2018", "Febrero - 2018", "Marzo - 2018", "Abril - 2018", "Mayo - 2018", "Junio - 2018", "Julio - 2018", "Agosto - 2018", "Septiembre - 2018", "Octubre - 2018", "Noviembre - 2018", "Diciembre - 2018", "Enero - 2019", "Febrero - 2019", "Marzo - 2019", "Abril - 2019", "Mayo - 2019", "Junio - 2019", "Julio - 2019", "Agosto - 2019", "Septiembre - 2019", "Octubre - 2019", "Noviembre - 2019", "Diciembre - 2019", "Enero - 2020", "Febrero - 2020", "Marzo - 2020", "Abril - 2020", "Mayo - 2020", "Junio - 2020", "Julio - 2020", "Agosto - 2020", "Septiembre - 2020", "Octubre - 2020", "Noviembre - 2020"],
+            "datasets": [
+                {
+                    "label": "Lechuga",
+                    "data": [12038.11, 10972.67, 12502.88, 13127.8, 13630.56, 14582.46, 14679.17, 12831.19, 13849.81, 13260.72, 11306.83, 12606.24, 13385.06, 12740.95, 15028.88, 13665.81, 17761.93, 17547.01, 18731.44, 15378.18, 14846.87, 16034.35, 13393.12, 14056.75, 14461.92, 14925.74, 17836.29, 20692.47, 21347.32, 18751.71, 17223.53, 15760.23, 15879.52, 16010.76, 15583.43],
+                    "backgroundColor": "rgba(75, 192, 192, 1)",
+                    "borderColor": "rgba(75, 192, 192, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Cebolla",
+                    "data": [25922.07, 24194.45, 27461.4, 26667.55, 28258.86, 26524.09, 27568.97, 27313.41, 30042.96, 28108.03, 27566.55, 25814.98, 27554.46, 25914.54, 27553.74, 26626.49, 27662.09, 26750.28, 29827.58, 31187.48, 25265.98, 26908.03, 26421.05, 25360.39, 26075.03, 26921.73, 34088.44, 38862.02, 35409.9, 30376.89, 28290.45, 26491.05, 29660.96, 32327.0, 29522.24],
+                    "backgroundColor": "rgba(54, 162, 235, 1)",
+                    "borderColor": "rgba(54, 162, 235, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Patata",
+                    "data": [108430.72, 101633.34, 111978.64, 107954.27, 105696.43, 106137.65, 107767.93, 100252.35, 107399.38, 118828.76, 102803.4, 111273.02, 109465.69, 99731.9, 106250.4, 105168.17, 109573.5, 101392.61, 112316.35, 103976.44, 103605.26, 109126.01, 107635.34, 105495.73, 101985.34, 107378.9, 144056.38, 153817.66, 138387.73, 118550.07],
+                    "backgroundColor": "rgba(153, 102, 255, 1)",
+                    "borderColor": "rgba(153, 102, 255, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Naranja",
+                    "data": [96414.9, 87715.83, 97836.07, 94388.69, 87076.13, 60657.43, 36184.19, 27808.13, 28861.28, 38313.49, 58300.7, 66397.9, 90555.5, 86560.42, 96625.02, 87111.72, 80403.42, 55608.45, 39744.93, 28009.87, 27671.7, 35541.63, 55974.28, 66124.7, 83856.23, 85997.39, 106709.0, 124241.2, 92190.21, 49736.3, 33012.21, 22936.44, 26007.96, 39240.26, 60360.94],
+                    "backgroundColor": "rgba(255, 159, 64, 1)",
+                    "borderColor": "rgba(255, 159, 64, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Tomate",
+                    "data": [39934.35, 37209.3, 43479.81, 45536.21, 51320.23, 59438.64, 64821.56, 67221.3, 69556.45, 50166.84, 38510.74, 37937.21, 39508.2, 38829.74, 44314.17, 41122.87, 53400.39, 59844.82, 70499.11, 65885.34, 65359.45, 54632.81, 43425.75, 36498.68, 40993.26, 43416.49, 49440.89, 61129.36, 67383.64, 66660.26, 74111.99, 64452.71, 64894.57, 52238.0, 48644.85],
+                    "backgroundColor": "rgba(255, 99, 132, 1)",
+                    "borderColor": "rgba(255, 99, 132, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Plátano",
+                    "data": [51819.21, 47849.0, 52610.8, 52679.79, 51580.7, 42611.11, 34972.86, 30319.44, 38153.29, 46170.88, 46718.59, 42540.82, 49210.08, 48462.55, 54868.69, 53360.34, 54548.78, 45228.02, 39072.37, 35795.95, 42305.7, 48788.85, 49722.32, 45653.18, 51272.09, 55209.87, 62228.78, 72556.54, 65028.38, 50025.29, 42572.49, 36262.03, 44651.93, 55264.94, 54888.95],
+                    "backgroundColor": "rgba(255, 206, 86, 1)",
+                    "borderColor": "rgba(255, 206, 86, 0.7)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Volumen (miles de kg)"
+                    },
+                    "position": "left",
+                    "ticks": {
+                        "min": 0,
+                        "max": 160000
+                    }
+
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "exportacion_prevista":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero - 2019", "Febrero - 2019", "Marzo - 2019", "Abril - 2019", "Mayo - 2019", "Junio - 2019", "Julio - 2019", "Agosto - 2019", "Septiembre - 2019", "Octubre - 2019", "Noviembre - 2019", "Diciembre - 2019", "Enero - 2020", "Febrero - 2020", "Marzo - 2020", "Abril - 2020", "Mayo - 2020", "Junio - 2020", "Julio - 2020", "Agosto - 2020", "Septiembre - 2020", "Octubre - 2020"],
+            "datasets": [
+                {
+                    "label": "Exportación Real",
+                    "data": [1361740828.0, 1272052517.0, 1406691525.0, 1330064919.0, 1362378312.0, 1083938017.0, 856711965.0, 689795552.0, 598201319.0, 896035846.0, 1273932450.0, 1411200665.0, 1490664411.0, 1446261847.0, 1592060647.0, 1509890693.0, 1426706805.0, 1098967809.0, 809863761.0, 737769188.0, 665365276.0, 1084240656.0],
+                    "backgroundColor": "rgba(75, 192, 192, 1)",
+                    "borderColor": "rgba(75, 192, 192, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Exportación Prevista",
+                    "data": [1377580032.0, 1297355136.0, 1403718400.0, 1326242304.0, 1360618752.0, 1082119040.0, 867678208.0, 700749312.0, 609598976.0, 893692288.0, 1288807168.0, 1408623104.0, 1470768000.0, 1419812224.0, 1567122432.0, 1419590528.0, 1371371776.0, 1111883008.0, 863561472.0, 671436288.0, 585748480.0, 872954368.0],
+                    "backgroundColor": "rgba(255, 59, 24, 0.8)",
+                    "borderColor": "rgba(255, 59, 24, 0.6)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Fecha"
+                    }
+                }]
+            },
+            "annotation": {
+                "annotations": [
+                  {
+                    "drawTime": "afterDatasetsDraw",
+                    "id": "vline_exp",
+                    "type": "line",
+                    "mode": "vertical",
+                    "scaleID": "x-axis-0",
+                    "value": 13,
+                    "borderColor": "rgba(255, 22, 22, 0.6)",
+                    "borderDash": [10, 10],
+                    "borderWidth": 2,
+                    "label": {
+                      "backgroundColor": "red",
+                      "enabled": true
+                    }
+                  }
+                ]
+            }
+        }
+    },
+
+    "importacion_prevista":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero - 2019", "Febrero - 2019", "Marzo - 2019", "Abril - 2019", "Mayo - 2019", "Junio - 2019", "Julio - 2019", "Agosto - 2019", "Septiembre - 2019", "Octubre - 2019", "Noviembre - 2019", "Diciembre - 2019", "Enero - 2020", "Febrero - 2020", "Marzo - 2020", "Abril - 2020", "Mayo - 2020", "Junio - 2020", "Julio - 2020", "Agosto - 2020", "Septiembre - 2020", "Octubre - 2020"],
+            "datasets": [
+                {
+                    "label": "Importación Real",
+                    "data": [257393351.0, 249800095.0, 296488067.0, 296556760.0, 263923804.0, 175541969.0, 184065507.0, 195470412.0, 216589051.0, 265376017.0, 260428272.0, 277767363.0, 251020687.0, 260993283.0, 316179585.0, 311650519.0, 301391483.0, 235842138.0, 205483341.0, 196433396.0, 230395635.0, 261710137.0],
+                    "backgroundColor": "rgba(75, 192, 192, 1)",
+                    "borderColor": "rgba(75, 192, 192, 0.7)",
+                    "fill": false
+                },
+                {
+                    "label": "Importación Prevista",
+                    "data": [258114256.0, 248887232.0, 298127040.0, 300714816.0, 267535872.0, 173590256.0, 185908448.0, 192437936.0, 217866752.0, 265245216.0, 260814368.0, 276619360.0, 256872240.0, 264333808.0, 288771456.0, 316776256.0, 271975456.0, 170882336.0, 204701664.0, 236665072.0, 302043008.0, 245427184.0],
+                    "backgroundColor": "rgba(255, 59, 24, 0.8)",
+                    "borderColor": "rgba(255, 59, 24, 0.6)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Fecha"
+                    }
+                }]
+            },
+            "annotation": {
+                "annotations": [
+                  {
+                    "drawTime": "afterDatasetsDraw",
+                    "id": "vline_imp",
+                    "type": "line",
+                    "mode": "vertical",
+                    "scaleID": "x-axis-0",
+                    "value": 13,
+                    "borderColor": "rgba(255, 22, 22, 0.6)",
+                    "borderDash": [10, 10],
+                    "borderWidth": 2,
+                    "label": {
+                      "backgroundColor": "red",
+                      "enabled": true
+                    }
+                  }
+                ]
+            }
+        }
+    }
+
+}

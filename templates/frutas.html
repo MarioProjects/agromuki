@@ -1,0 +1,61 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %}AgroAnalysis - Frutas{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">Frutas</h1>
+
+            <div class="texted-block mt-12">
+                <p>
+                    La gran diversidad de climas y zonas productoras que hay en España permite que la producción
+                    nacional de frutas sea muy rica y variada.
+                    A continuación se analizan los efectos de la COVID-19 de una selección de frutas. Hacer click
+                    sobre la fruta deseada para más información.
+                </p>
+
+                <div class="flex flex-wrap justify-evenly mt-6 mb-10">
+                    {% include 'frutas/naranja_btn.html' %}
+                    {% include 'frutas/platano_btn.html' %}
+                    {% include 'frutas/manzana_btn.html' %}
+                    {% include 'frutas/pera_btn.html' %}
+                    {% include 'frutas/aguacate_btn.html' %}
+                    {% include 'frutas/limon_btn.html' %}
+                    {% include 'frutas/fresa_btn.html' %}
+                    {% include 'frutas/pepino_btn.html' %}
+                    {% include 'frutas/pimiento_btn.html' %}
+                    <!-- {% include 'frutas/albaricoque_btn.html' %} -->
+                    {% include 'frutas/kiwi_btn.html' %}
+                    {% include 'frutas/melocoton_btn.html' %}
+                    {% include 'frutas/pina_btn.html' %}
+                    {% include 'frutas/sandia_btn.html' %}
+                    {% include 'frutas/melon_btn.html' %}
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+{% endblock %}
+
+{% block js_imports %}
+
+    <script>
+        $(document).ready(function () {
+            let nav_actual = $(".frutas_nav_item");
+            active_current_nav(nav_actual);
+
+            random_animation_speed(".fruta_btn_div", ["", "animate__faster"]);
+
+        });
+    </script>
+
+{% endblock %}

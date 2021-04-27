@@ -1,0 +1,192 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "verduras/base_hortaliza_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_hortaliza_titulo %}Calabacín{% endblock %}
+{% block nombre_hortaliza %}Calabacín{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_hortaliza %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Calabacín</h3>
+            <p class="mt-4">
+                El origen del calabacín no está del todo claro, por una parte parece ser que procede de Asia.
+                Su nombre aparece entre las hortalizas citadas por egipcios y existen pruebas de que también eran
+                conocidos por los romanos. Otras fuentes atribuyen su origen a la América precolombina,
+                concretamente en la zona de México; siendo una de las especies que introdujeron los españoles en
+                Europa, durante la época del descubrimiento. Es difícil obtener datos de superficie y producción
+                de calabacín por países productores, ya que la mayor parte de ellos incluyen en las estadísticas
+                oficiales calabazas y calabacines conjuntamente, representando en españa 300.000 toneladas de la
+                producción mundial y una superficie cultivada de 7.000 hectáreas.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/calabacin/varios_min.jpg"
+                    alt="Foto Calabacín"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Gracias a los datos facilitados por el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                en las gráficas <b>Volumen Consumo Nacional Calabacín</b> y <b>Penetración Nacional Calabacín</b>
+                mostramos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019 y 2020,
+                así como la penetración de la calabacín en los hogares españoles, respectivamente.
+                El comportamiento observado en el calabacín se asemeja mucho al que vemos en el caso de la berenjena,
+                aunque siendo el calabacín mas popular en la población española, pues el volumen de consumo nacional y
+                penetración son superiores. Aún así, podemos observar el mismo comportamiento: El calabacín es un producto
+                ciertamente atemporal, consumido prácticamente de forma similar a lo largo del año, y que experimenta
+                un <b>impacto positivo</b> notorio con la llegada de la crisis sanitaria. Este impacto positivo se
+                produce principalmente durante los primeros meses de la pandemia, durante el periodo de excepción,
+                y es que con la llegada del coronavirus y el confinamiento la población española realizó un acopio de
+                productos alimenticios que propició el crecimiento generalizado del consumo de dichos productos.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Calabacín
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Calabacín
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                El comportamiento que contemplamos en las <b>importaciones y exportaciones</b> realizadas en España
+                durante el periodo comprendido entre enero de 2017 y diciembre de 2020, vemos a grandes rasgos
+                como los niveles de exportaciones están en auge desde 2017, mientras los niveles de importaciones
+                se mantienen comportamientos y valores estables.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde encontramos como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las exportaciones
+                siguen un patrón ondulante que además viene marcado por temporadas, advirtiendo en agosto una
+                bajada que observábamos en las gráficas de volumen y penetración nacional recurrentemente.
+                Con ello, vemos como el COVID no ha presentado un gran problema en materia de exportaciones e
+                importaciones del calabacín, manteniendo la tónica general en el aumento progresivo de las exportaciones,
+                presentando un inicio de 2020 similar al año previo que mejora considerablemente con la
+                irrupción de la crisis sanitaria, corroborando las observaciones vistas en las graficas anteriores,
+                recalcando el <b>impacto positivo</b> de la crisis sanitaria.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Calabacín
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/calabacin.json', function (data) {
+                /* -- Volumen Consumo Nacional Calabacín -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_calabacin_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Calabacín -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_calabacin_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Calabacín -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["calabacin_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 20000,
+                        max: 70000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

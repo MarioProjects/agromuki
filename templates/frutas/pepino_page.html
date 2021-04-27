@@ -1,0 +1,210 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Pepino{% endblock %}
+{% block nombre_fruta %}Pepino{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información del Pepino</h3>
+            <p class="mt-4">
+                El pepino es una hortaliza en forma de fruto que se encuentra especialmente en el verano.
+                Se suele utilizar en ensaladas, aunque aumenta el consumo de pepinillos en vinagre.
+                El pepino es originario de las regiones tropicales del sur de Asia.
+                Ha sido cultivado en la India desde hace más de 3.000 años.
+                De la India se extendió a Grecia y de ahí a Roma y posteriormente se introdujo en China.
+                El cultivo de pepino fue difundido por los romanos en otras partes de Europa,
+                incluso aparecen registros de este cultivo en Francia en el siglo IX,
+                en Inglaterra en el siglo XIV y en Norteamérica a mediados del siglo XVI.
+                El pepino, aunque creamos que es una verdura, es una fruta.
+                Su alto contenido en agua y bajo en hidratos de carbono lo sitúa dentro de este grupo.
+            </p>
+            <p class="mt-4">
+                Entre las producciones hortofrutícolas, España destaca dentro de la UE por sus cosechas de pepino,
+                calabacín, cítricos, melocotón y fresa. Gracias al escalonamiento de cosechas, en España es posible
+                disponer de ellos durante prácticamente todo el año.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/pepino/dados_res_min.jpg"
+                    alt="Foto Pepino"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                A través de los datos facilitados por el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                podemos estudiar el <b>Volumen Consumo Nacional Pepino</b> y la <b>Penetración Nacional Pepino</b>
+                que nos permiten crear las gráficas expuestas a continuación.
+                En estas mostramos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018,
+                2019 y 2020, así como la penetración del pepino los hogares españoles, respectivamente.
+
+                Ambas gráficas presentan un año 2020 con datos ligeramente superiores a los obtenidos anteriormente.
+                Si nos centramos en los meses del <b>periodo de excepción</b> (marzo, abril y mayo),
+                vemos que las variaciones, con respecto a otros productos hortofrutícolas, son mínimas.
+                En cuanto a la penetración, la mayor subida (6%) se origina en febrero de 2020, atravesando el
+                periodo de excepción sin mayores acontecimientos y reduciéndose la diferencia con otros años hasta
+                un 3% en el mes de abril.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                En cuanto al volumen del consumo nacional del pepino, 2020 presenta datos ligeramente
+                superiores durante todo el año, con una subida de en torno el 10% en marzo,
+                llegando a un 28% en abril. Quizás estos valores se encuentren más en la media de otros productos,
+                pero se quedan algo retrasados.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Pepino
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Pepino
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Teniendo en cuenta las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, podemos observar varios factores.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las importaciones
+                del pepino presentan unos valores mínimos en el conjunto del mercado español.
+
+                En cuanto a las exportaciones, estas presentan fluctuaciones que podemos categorizar como
+                <i>normales</i>
+                ya que las vemos presentes también en el resto de productos hortofrutícolas con patrones más o menos
+                similares, como es el caso del pimiento.
+
+                Si nos centramos en los niveles durante el periodo de la pandemia y los comparamos con los años previos,
+                <b>existe una tendencia bajista</b> en las exportaciones disminuyendo suavemente y se estabilizándose
+                con la media observada en años anteriores. Esta conducta es la esperada y junto a las importaciones,
+                al no ver grandes cambios, podemos afirmar que el pepino no se ve afectado ni positivamente
+                ni negativamente por la crisis sanitaria. Podemos atribuir esto a que el pepino es un producto
+                hortofrutícola algo menos popular que otros, menos ligado a la salud pero que a su vez mantiene su
+                público durante la pandemia, como observábamos al estudiar la penetración nacional.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Pepino
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/pepino.json', function (data) {
+                /* -- Volumen Consumo Nacional Pepino -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_pepinos_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Pepino -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_pepinos_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Pepino -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["pepinos_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 20000,
+                        max: 140000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

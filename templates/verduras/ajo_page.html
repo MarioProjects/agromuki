@@ -1,0 +1,206 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "verduras/base_hortaliza_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_hortaliza_titulo %}Ajo{% endblock %}
+{% block nombre_hortaliza %}Ajo{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_hortaliza %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información del Ajo</h3>
+            <p class="mt-4">
+                Las primeras verduras de las que se tiene noticia son el ajo y la cebolla,
+                que se cultivaban en Asia hace más de 7.000 años.
+                En el caso del ajo, se observa un fuerte crecimiento en las siembras en los últimos años,
+                en consonancia con un aumento de la demanda, llegando a ocupar alrededor de 28.00 hectáreas.
+                Se trata de uno de los cultivos hortícolas emblemáticos de la producción española
+                y que tuvieron un balance positivo en 2019.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/ajo/varios_ajos_res_min.jpg"
+                    alt="Foto cabeza ajos"
+            >
+
+            <p class="mt-6 lg:mt-3">
+                Las verduras más exportadas a países no comunitarios en 2017 fueron las patatas, las cebollas y los
+                ajos.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Al observar los datos facilitados por el Ministerio de Agricultura, Pesca y Alimentación (MAPA)
+                en las gráficas de <b>Volumen Consumo Nacional Ajo</b> y <b>Penetración Nacional Ajo</b>,
+                en las que se muestra en las que se muestra la cantidad en miles de kilogramos vendidos en cada mes
+                durante los años 2018, 2019 y 2020, así como el porcentaje de hogares que compran ese producto,
+                respectivamente, podemos ver como en la pandemia, particularmente en los meses de excepción
+                (marzo, abril y mayo), el ajo se comporta como el general de los productos hortofrutícolas,
+                donde las ventas de este producto aumentaron significativamente.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Principalmente en el mes de abril, en pleno <b>periodo de excepción</b>,
+                el ascenso en el volumen de consumo se sitúa en torno al 35% con respecto a los años 2018 y 2019,
+                mientras que la penetración nacional presenta un aumento del 10%, situándose en el 46% de penetración,
+                con respecto a los años anteriores. Con ello vemos como la producción de este producto hortofrutícola
+                se ve <b>afectado positivamente</b> por la crisis sanitaria. Podemos achacar esto a que el sector
+                alimentario no tuvo ningún parón en la cadena de suministro y tanto por el caos formado ante esta
+                incierta situación que condujo a muchas familias a abastecerse ante el miedo a la falta de alimentos,
+                tanto a quedarse en casa y consumir más en su lugar de residencia. Aun así, la tasa de penetración se
+                mantiene baja si la comparamos con otros productos hortofrutícolas como el tomate.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Ajo
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Ajo
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                En cuanto a las <b>importaciones y exportaciones</b> realizadas en España durante el periodo de
+                enero de 2017 a diciembre de 2020 referentes al ajo, cabe destacar varios aspectos.
+                Tomando los datos proporcionados por Eurostat, analizando la cantidad de producto en valor monetario
+                referente a las exportaciones e importaciones que tienen como socio a España,
+                observamos que las importaciones han sido bastante estables a lo largo de estos últimos años,
+                siendo a su vez bastante inferiores a las exportaciones.
+
+                Por otra parte, en cuanto a las exportaciones, estas presentan valores más erráticos sin un patrón
+                claro que facilite el análisis de la pandemia. Así, al comparar los niveles durante
+                el periodo de la pandemia con los años previos, observamos un <b>ascenso significativo</b>
+                del mes de febrero al mes de marzo, cuando comienza en el <b>periodo de excepción</b>.
+
+                Aun así, nos es difícil atribuir este comportamiento a la crisis sanitaria ya que los meses previos
+                al periodo de excepción veíamos una subida progresiva que acaba culminándose en marzo. Además, el pico
+                presentado es equiparable a algunos presentados con anterioridad, como el de julio de 2019.
+
+                Con ello, no podemos atribuir un gran efecto de la COVID-19 en materia de importación y exportación en
+                lo referente al ajo.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Ajo
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/ajo.json', function (data) {
+                /* -- Volumen Consumo Nacional Ajo -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_ajos_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(
+                    volumen_nacional_canvas, volumen_producto_nacionales
+                );
+
+                /* -- Penetración Nacional Ajo -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_ajos_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Ajo -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["ajos_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 100000,
+                        max: 45000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

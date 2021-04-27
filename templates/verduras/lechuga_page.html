@@ -1,0 +1,196 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "verduras/base_hortaliza_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_hortaliza_titulo %}Lechuga{% endblock %}
+{% block nombre_hortaliza %}Lechuga{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_hortaliza %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Lechuga</h3>
+            <p class="mt-4">
+                Para el análisis de este producto, la lechuga, vamos a estudiarlo junto otras plantas herbáceas
+                muy parecidas, la endivia y la escarola. Estas verduras presentan un consumo menor al de
+                los tomates o cebollas, con 13.3 y 7.1 kilos por personas y año respectivamente,
+                pero aun así su consumo en el total de las verduras frescas alcanza el 7.0%,
+                con 4 kilos por persona al año. Tras los tomates, en términos de gasto concentran el 10.2%
+                y un total de 10.9 euros por persona (datos aproximados para el año 2020).
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/verduras/lechuga/frente_res_min.jpg"
+                    alt="Foto Lechuga"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Gracias a los datos facilitados por el Ministerio de Agricultura, Pesca y Alimentación (MAPA),
+                en las gráficas <b>Volumen Consumo Nacional Lechuga</b> y <b>Penetración Nacional Lechuga</b>
+                mostramos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019 y 2020,
+                así como la penetración de la lechuga en los hogares españoles, respectivamente.
+                La tónica para la lechuga en cuanto a la penetración es ligeramente menos pronunciada en el mes de marzo
+                con respecto a otros productos hortofrutícolas, pero en abril crece hasta desmarcarse en torno un 10%
+                con respecto el año anterior, como viene siendo tendencia.
+            </p>
+            <p class="mt-6 lg:mt-3">
+                Por otra parte, principalmente en pleno <b>periodo de excepción</b> los mes de marzo, abril y mayo,
+                el ascenso en el volumen de consumo se sitúa en torno al 15-50% con respecto a los años 2018 y 2019.
+                Con ello vemos como la producción de este producto hortofrutícola se ve <b>afectado positivamente</b>
+                ante la crisis sanitaria, achacando de nuevo este comportamiento al gran trabajo que el sector
+                alimentario
+                hizo continuando con su cadena de suministro, adaptándose al creciente consumo dado
+                por el miedo al desabastecimiento durante las primeras etapas de la crisis sanitaria
+                y el confinamiento en casa.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Lechuga
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Lechuga
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                El comportamiento que contemplamos en las <b>importaciones y exportaciones</b> realizadas en España
+                durante el periodo comprendido entre enero de 2017 y diciembre de 2020, es similar al del tomate pero
+                presentando números menores.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde esta como socio España,
+                analizando la cantidad de producto en valor monetario, observamos que las exportaciones
+                siguen un patrón ondulante, típico en las verduras, mientras que los valores de las importaciones son
+                más estables y significativamente menores.
+
+                Al comparar los niveles durante el periodo de la pandemia con los años previos,
+                <b>no existen grandes perturbaciones</b>, sobre todo en los niveles de importaciones que
+                siguen su comportamiento típico, así como para las exportaciones.
+
+                Con ello vemos como el COVID no ha presentado un gran problema en materia de exportaciones e
+                importaciones de la lechuga, manteniéndose en la línea de lo esperado.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Lechuga
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/lechuga.json', function (data) {
+                /* -- Volumen Consumo Nacional Lechuga -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_lechugas_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Lechuga -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_lechugas_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Lechuga -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["lechugas_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 700000,
+                        max: 120000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

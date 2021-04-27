@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.texted-block{  /* Clase para formatear el texto de la página */
+    @apply text-base;
+    @apply font-light;
+    @apply pb-6;
+    @apply w-11/12;
+    @apply mx-auto;
+}
+
+.apartado_h3{  /* Clase para crear los encabezados entre secciones del las páginas */
+    @apply text-green-700;
+    @apply text-xl;
+    @apply tracking-wide;
+    @apply font-bold;
+    @apply mt-9;
+    @apply mb-3;
+}
+
+.link_web{  /* Clase utilizada para enlaces a otras páginas web */
+    @apply text-yellow-600;
+    @apply underline;
+}
+
+.imagen_producto{  /* Clase para las imágenes dispuestas en las diferentes páginas de productos */
+    @apply w-full;
+    @apply lg:w-5/12;
+    @apply float-none;
+    @apply lg:float-right;
+    @apply mt-6;
+    @apply lg:mt-4;
+    @apply ml-0;
+    @apply lg:ml-6;
+    @apply mb-6;
+    @apply lg:mb-4;
+    @apply shadow-xl;
+    @apply rounded-lg;
+}
+
+.texto_archivo{  /* Clase para formatear texto que hace referencia a archivos */
+    @apply py-1;
+    @apply px-2;
+    @apply mr-2;
+    @apply bg-gray-200;
+    @apply rounded-lg;
+}
+
+/* Clases para conjunto de botones selección (.toggle-buttons) */
+
+.selected_choice{
+    @apply cursor-pointer;
+    @apply text-white;
+    @apply hover:text-white;
+    @apply bg-blue-600;
+    @apply py-2;
+    @apply px-4;
+    @apply mr-3;
+    @apply my-2;
+
+    @apply font-sans;
+    @apply font-semibold;
+    @apply text-sm;
+
+    @apply shadow-lg;
+    @apply no-underline;
+    @apply rounded-full;
+
+    @apply focus:outline-none;
+}
+
+.unselected_choice{
+    @apply cursor-pointer;
+    @apply text-gray-500;
+    @apply hover:text-gray-50;
+    @apply bg-white;
+    @apply hover:bg-blue-200;
+    @apply py-2;
+    @apply px-4;
+    @apply mr-3;
+    @apply my-2;
+
+    @apply font-sans;
+    @apply font-semibold;
+    @apply text-sm;
+    @apply shadow-lg;
+    @apply no-underline;
+    @apply rounded-full;
+
+    @apply focus:outline-none;
+}

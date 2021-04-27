@@ -1,0 +1,203 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Melón{% endblock %}
+{% block nombre_fruta %}Melón{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Melón</h3>
+            <p class="mt-4">
+                El melón es una fruta tropical adaptada a climas templados y que tienen en la Región de Murcia un
+                santuario natural para su cultivo. Su origen está envuelto en misterio pues se han encontrado pruebas
+                de su existencia en épocas muy cercanas en el tiempo tanto en Asia como en África. Los romanos, a
+                través del puerto de Cartago Nova, lo introducirían en la Península Ibérica, siendo precisamente en el
+                Campo de Cartagena donde se encuentran las mayores plantaciones de melones de toda la Región de Murcia,
+                una de las mayores productoras de España.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/melon/abierto_res_min.jpg"
+                    alt="Foto Melón"
+            >
+
+            <p class="mt-4">
+                Se trata de una de las frutas dulces, aunque se clasifiquen entre las hortalizas muchas veces, más
+                extendidas en España junto la fresa y la sandía.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Para analizar los efecto de la COVID-19 tomaremos los datos que nos facilita el Ministerio de Agricultura,
+                Pesca y Alimentación (MAPA), que nos permiten generar las gráficas para estudiar el
+                <b>Volumen Consumo Nacional Melón</b> y la <b>Penetración Nacional Melón</b>
+                en las que vemos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019
+                y 2020, así como la acogida de la melón en los hogares españoles, respectivamente.
+
+                Por una parte, analizando el volumen de consumo nacional de la melón vemos que esta fruta, al igual
+                que muchas otras, sufre variaciones dependiendo de la temporada en la que nos encontremos.
+                Los años 2018 y 2019 presentan datos muy similares en cuanto a miles de kg vendidos de esta fruta.
+                Si analizamos el año 2020 vemos que el comportamiento sigue siendo muy similar y es que la temporada
+                del melón no coincide con el <b>periodo de excepción</b>, tiempo en el que la venta de productos
+                alimenticios se vio mas afectada por la crisis sanitaria, obteniendo
+                <b>valores dentro de lo esperado</b>, similares a años anteriores.
+
+                En lo referente a la penetración nacional del melón, esta tiene un comportamiento similar al volumen
+                de consumo, sin observar nada relevante con respecto 2018 y/o 2019.
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Melón
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Melón
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Con lo correspondiente a las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos patrones típicos de
+                las frutas de temporada, con exportaciones superiores a las importaciones, principalmente en los
+                meses de consumo del producto, que en este caso se ven superadas por las importaciones en el resto
+                de meses con tal de suplir la baja demanda fuera de temporada.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde España interviene como socio,
+                analizando la cantidad de producto en valor monetario, centrándonos en los niveles obtenidos durante
+                el periodo de la pandemia,
+                vemos que la tendencia en los meses del <b>periodo de excepción</b> con respecto las importaciones
+                es similar a la de años anteriores, y es que el melón esta fuera de temporada, pero con el avance
+                de la COVID-19 y su <i>normalización</i>, en los meses estivos con la subida del consumo del melón
+                vemos como dicha subida es <b>inferior</b> a la dada en años previos, como se preveía (<a
+                    class="link_web"
+                    href="https://cadenaser.com/emisora/2020/04/14/ser_ciudad_real/1586865730_943026.html"
+                    target="_blank">Cadena SER</a>),
+                en parte por la bajada del turismo a causa de la crisis sanitaria, quien era gran consumidor de este
+                producto hortofrutícola y que llevó a los productores a tener cautela en su plantación.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Melón
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/melon.json', function (data) {
+                /* -- Volumen Consumo Nacional Melón -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_melon_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Melón -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_melon_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Melón -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["melon_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 0,
+                        max: 100000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

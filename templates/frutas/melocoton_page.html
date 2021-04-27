@@ -1,0 +1,197 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Melocotón{% endblock %}
+{% block nombre_fruta %}Melocotón{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Melocotón</h3>
+            <p class="mt-4">
+                El melocotonero es originario de China donde existen referencias al cultivo que se remontan a 3000 años.
+                Posteriormente fue introducido en Persia a través de las rutas comerciales por las montañas llegando
+                a ser conocido como fruta pérsica de ahí su nombre persica. Es por esta razón por la que mucha
+                gente cree equivocadamente que el lugar de origen del melocotón es Persia.
+                Fue llevado occidente a través de rutas comerciales. A dia de hoy es uno de los cultivos más importantes
+                de todo el mundo con una producción global cercana a las 10 mil toneladas, concentrando la producción
+                mundial en torno al Mediterráneo, siendo Italia y España.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/melocoton/rama_res_min.jpg"
+                    alt="Foto Melocotones"
+            >
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Para analizar los efecto de la COVID-19 tomaremos los datos que nos facilita el Ministerio de Agricultura,
+                Pesca y Alimentación (MAPA), que nos permiten generar las gráficas para estudiar el
+                <b>Volumen Consumo Nacional Melocotón</b> y la <b>Penetración Nacional Melocotón</b>
+                en las que vemos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019
+                y 2020, así como la acogida de la melocotón en los hogares españoles, respectivamente.
+
+                Podemos observar de forma clara como el melocotón es una fruta de temporada, que se mantiene en valores
+                mínimos durante prácticamente el primer semestre del año, y desde junio a octubre aproximadamente sufre
+                un incremento extraordinario. Con ello, el principio de la pandemia no se corresponde con la época de
+                consumo del melocotón por lo que no podemos atribuir ningún efecto en el consumo de este,
+                meses del <b>periodo de excepción</b> donde generalmente es donde se produce un aumento mayor en el
+                consumo de los productos hortofrutícolas. Por otra parte, cuándo se llega a la temporada del melocotón,
+                este se encuentra con una sociedad que ya ha asimilado en cierta manera la aparición del coronavirus
+                y por lo tanto, como observamos en las gráficas, su consumo y penetración en el hogar español
+                toma valores dentro de los rangos esperados, <b>sin alteraciones significativas</b>.
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Melocotón
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Melocotón
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Con lo correspondiente a las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos que las importaciones son
+                constantes a lo largo de los años y a su vez insignificantes si las comparamos con las exportaciones.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde España interviene como socio,
+                analizando la cantidad de producto en valor monetario, vemos como las exportaciones siguen un patrón
+                ondulante, típico en productos de temporada, que centra los periodos de crecimiento en la época de
+                consumo del melocotón.
+
+                Centrándonos en los niveles obtenidos durante el periodo de la pandemia,
+                vemos que la tendencia en los meses del <b>periodo de excepción</b> con respecto las exportaciones es
+                mínimo, siendo abril el mes donde comienza a exportarse este producto. Si bien veíamos que el consumo
+                y penetración nacional no se veían muy afectadas, en cuanto a las exportaciones si que observamos un
+                crecimiento desde los primeros meses de su consumo. Abril presenta un crecimiento con respecto a otros
+                años que prosiguen hasta niveles un 36% superiores en mayo. Así, en Junio se llegan al máximo global
+                en la ventana de tiempo estudiada, superando en un 25% los niveles obtenidos por las mismas fechas en
+                2019. Con ello, vemos como el consumo en otros países del melocotón ha crecido y resulta en un
+                <b>impacto positivo</b> en términos de exportaciones para esta fruta.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Melocotón
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/melocoton.json', function (data) {
+                /* -- Volumen Consumo Nacional Melocotón -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_melocoton_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Melocotón -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_melocoton_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Melocotón -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["melocoton_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 0,
+                        max: 100000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

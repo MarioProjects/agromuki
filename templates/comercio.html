@@ -1,0 +1,360 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %} AgroAnalysis - Comercio Exterior {% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">Comercio Exterior</h1>
+
+            <div class="texted-block mt-6">
+
+                <p class="mt-4">
+                    Podemos analizar el impacto de la crisis sanitaria desde diferentes perspectivas. El comercio
+                    exterior,
+                    en materia de exportaciones e importaciones, nos puede ayudar a hacernos una mejor idea no solamente
+                    de cuál ha sido el impacto de la COVID-19 en lo referente a la gravedad del estado español, si no
+                    como otros países han ido moderando, o no, su actividad comercial en función de la situación
+                    de emergencia en cada país. Así, en esta página mostramos el flujo de importaciones y exportaciones
+                    mantenidas por España durante febrero y el periodo de excepción con el resto de países, mostrando
+                    de forma visual el impacto del coronavirus a través del número de casos en cada mes, así como
+                    el total exportado e importado.
+
+                    <span class="block mt-2 text-gray-600 italic">
+                        Nota: Os animamos a cambiar los años y los meses en los mapas de importación y exportación.
+                        Además, al situar el ratón encima de los círculos, que representan la cantidad comercializada
+                        de cada país, se mostrará información más detallada de la misma.
+                    </span>
+                </p>
+
+                <h3 class="apartado_h3">Análisis Importaciones</h3>
+                <p class="mt-4">
+                    En cuanto a las importaciones realizadas por España desde otros países, optamos por generar un mapa
+                    utilizando los datos proporcionados por Eurostat en el que podemos controlar qué años mostrar
+                    (2018, 2019 y 2020), así como los meses, eligiendo aquellos que conforman el periodo de excepción
+                    (marzo, abril y mayo), así como febrero para visualizar mejor posibles valores atípicos.
+                    Con ello generamos el mapa de <b>Importaciones Españolas - Excepción</b>,
+                    que nos permite variar el año y mes mostrado, poner el ratón por encima y obtener información
+                    con el total de las importaciones realizadas para el país elegido en la fecha configurada,
+                    en el cual representamos mediante círculos la importancia monetaria de las importaciones
+                    (a mayor tamaño, mayor cantidad de productos hortofrutícolas importados). Junto a esta información,
+                    el país con importaciones es coloreado en función del impacto de la COVID-19 en dicha región.
+
+                    Así pues, esto nos permite extraer varias conclusiones de forma rápida y visual.
+                </p>
+                <p class="mt-4">
+                    Podemos observar a simple vista como Francia es uno de los principales proveedores de productos
+                    hortofrutícolas de España, importando productos por un total de 72 y 74 millones de euros en los
+                    meses de
+                    marzo de 2018 y 2019, respectivamente, y disminuyendo hasta los 68 millones de euros en 2020.
+                    Si lo comparamos con el mes previo, 2020 se presentaba algo por encima a años previos en cuanto a
+                    materia de importaciones con respecto este país, pero podemos ver cómo a causa de la crisis
+                    sanitaria los valores para este periodo de excepción bajan.
+
+                    En cambio, si estudiamos el comportamiento general de las importaciones para el periodo dado, vemos
+                    que 2019 se presentaba con un aumento de en torno el 6% con respecto a 2018, tónica que se mantiene
+                    para
+                    el año 2020, continuando con dicho aumento de forma más reducida pero constante al 3%.
+
+                    Estas diferencias entre países podemos atribuirlas a las diferentes medidas ante la COVID-19 que los
+                    países tomaron en los inicios de la pandemia.
+                </p>
+
+
+                <div class="flex flex-wrap flex-col mt-6 clear-both">
+                    <p class="text-xl pb-3 flex items-center mb-4">
+                        <i class="fas fa-check mr-3"></i> Importaciones Españolas - Excepción
+                    </p>
+                    <div class="">
+                        <p class="font-bold text-gray-600">Año:</p>
+                        <div id="year_importaciones" class="toggle-buttons mt-3 mb-4 flex flex-wrap flex-row gap-4">
+                            <button class="selected_choice" num-year="2018">2018</button>
+                            <button class="unselected_choice" num-year="2019">2019</button>
+                            <button class="unselected_choice" num-year="2020">2020</button>
+                        </div>
+                        <p class="font-bold text-gray-600">Mes:</p>
+                        <div id="meses_importaciones" class="toggle-buttons mt-3 mb-4 flex flex-wrap flex-row gap-5">
+                            <button class="selected_choice" num-mes="1">Enero</button>
+                            <button class="unselected_choice" num-mes="2">Febrero</button>
+                            <button class="unselected_choice" num-mes="3">Marzo</button>
+                            <button class="unselected_choice" num-mes="4">Abril</button>
+                            <button class="unselected_choice" num-mes="5">Mayo</button>
+                            <button class="unselected_choice" num-mes="6">Junio</button>
+                            <button class="unselected_choice" num-mes="7">Julio</button>
+                            <button class="unselected_choice" num-mes="8">Agosto</button>
+                            <button class="unselected_choice" num-mes="9">Septiembre</button>
+                            <button class="unselected_choice" num-mes="10">Octubre</button>
+                            <button class="unselected_choice" num-mes="11">Noviembre</button>
+                            <button class="unselected_choice" num-mes="12">Diciembre</button>
+                        </div>
+                        <span class="block mt-6 text-gray-600 italic">
+                            Nota: En el siguiente mapa se muestran las las importaciones realizadas por España a
+                            diferentes países representadas por círculos, donde a mayor tamaño mayor importación.
+                            Podemos conocer el valor de la importación al situar el ratón en en el pais
+                            en cuestión. En el periodo de pandemia, ademas, los países son coloreados en función de los
+                            casos de COVID-19 en el periodo seleccionado.
+                        </span>
+                    </div>
+                    <div class="relative">
+                        <div id="map-imports" style="height: 70vh" class="w-full mt-6 mb-6"></div>
+                        <div class="w-6/12 sm:w-5/12 md:w-4/12 lg:w-3/12 xl:w-2/12 text-sm absolute bottom-16 right-6 bg-gray-50 rounded-lg p-3 w-2/12 shadow-lg">
+                            <h4 class="font-medium mb-1">Casos Covid</h4>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(0, 0, 0, 0)"></span>0 - 5 000
+                            </div>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(255, 237, 160, 0.8)"></span>5 001 - 100 000
+                            </div>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(254, 178, 76, 0.8)"></span>100 001 - 250 000
+                            </div>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(252, 78, 42, 0.8)"></span>250 001 - 500 000
+                            </div>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(128, 0, 38, 0.7)"></span>500 000+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h3 class="apartado_h3">Análisis Exportaciones</h3>
+                <p class="mt-4">
+                    Por otro lado, podemos analizar las exportaciones realizadas por España a otros países generando un
+                    mapa utilizando los datos proporcionados por Eurostat. Mediante este mapa podemos controlar
+                    qué años mostrar (2018, 2019 y 2020), así como los meses, eligiendo aquellos que conforman el
+                    periodo de excepción (marzo, abril y mayo), añadiendo febrero para visualizar mejor posibles
+                    valores atípicos. Con ello generamos el mapa de <b>Exportaciones Españolas - Excepción</b>
+                    que nos permite variar el año y mes de vista, y al situar el ratón en cada país obtener información
+                    con el total de las exportaciones realizadas hacia el país elegido en la fecha configurada,
+                    en el cual representamos mediante círculos la importancia monetaria de las exportaciones,
+                    de forma que a mayor tamaño, mayor volumen total de productos hortofrutícolas exportados. Junto a
+                    esta
+                    información, el país con exportaciones es coloreado en función del impacto de la COVID-19 en dicha
+                    region.
+
+                    Así pues, esto nos permite extraer varias conclusiones de forma rápida y visual.
+                </p>
+                <p class="mt-4">
+                    Si comparamos el nivel de las exportaciones con respecto el de las importaciones teniendo en cuenta
+                    únicamente los datos proporcionados por Eurostat, vemos que las exportaciones son muy superiores.
+                    Esto se entiende como Superávit comercial ya que la diferencia es positiva: Se producen más
+                    exportaciones que importaciones. Se entiende que es el mejor resultado para un país ya que entran
+                    recursos del exterior.
+
+                    Vemos que esta <i>balanza</i> se corresponde a que las exportaciones son alrededor de 3 veces
+                    superiores
+                    a las importaciones. Concretamente, en 2018 las exportaciones eran 3.13 veces superiores, 3.26 en
+                    2019 y 3.31 en 2020 (<i>para los productos estudiados, a continuación se muestra un análisis con
+                    todos
+                    los productos</i>). Como vemos, 2020 mantiene la tónica general y en este aspecto no presenta
+                    valores atípicos. Además, <b>crece el valor de la exportación</b> ya que 2020 habría concluido con
+                    un
+                    volumen similar al de años previos, en torno a los 13.5 Mt, y una facturación próxima a los 14 200
+                    M€,
+                    lo que supondría un crecimiento del 5% respecto al dato registrado en 2019, y es que España exporta
+                    más
+                    del 50% de su volumen de frutas y hortalizas.
+                </p>
+
+
+                <div class="flex flex-wrap mt-6 flex-col clear-both">
+                    <p class="text-xl pb-3 flex items-center mb-4">
+                        <i class="fas fa-check mr-3"></i> Exportaciones Españolas - Excepción
+                    </p>
+                    <div class="">
+                        <p class="font-bold text-gray-600">Año:</p>
+                        <div id="year_exportaciones" class="toggle-buttons mt-3 mb-4 flex flex-wrap flex-row gap-4">
+                            <button class="selected_choice" num-year="2018">2018</button>
+                            <button class="unselected_choice" num-year="2019">2019</button>
+                            <button class="unselected_choice" num-year="2020">2020</button>
+                        </div>
+                        <p class="font-bold text-gray-600">Mes:</p>
+                        <div id="meses_exportaciones" class="toggle-buttons mt-3 mb-4 flex flex-wrap flex-row gap-5">
+                            <button class="selected_choice" num-mes="1">Enero</button>
+                            <button class="unselected_choice" num-mes="2">Febrero</button>
+                            <button class="unselected_choice" num-mes="3">Marzo</button>
+                            <button class="unselected_choice" num-mes="4">Abril</button>
+                            <button class="unselected_choice" num-mes="5">Mayo</button>
+                            <button class="unselected_choice" num-mes="6">Junio</button>
+                            <button class="unselected_choice" num-mes="7">Julio</button>
+                            <button class="unselected_choice" num-mes="8">Agosto</button>
+                            <button class="unselected_choice" num-mes="9">Septiembre</button>
+                            <button class="unselected_choice" num-mes="10">Octubre</button>
+                            <button class="unselected_choice" num-mes="11">Noviembre</button>
+                            <button class="unselected_choice" num-mes="12">Diciembre</button>
+                        </div>
+                        <span class="block mt-6 text-gray-600 italic">
+                            Nota: En el siguiente mapa se muestran las las exportaciones realizadas por España a
+                            diferentes países representadas por círculos, donde a mayor tamaño mayor exportación.
+                            Podemos conocer el valor de la exportación al situar el ratón en el el pais
+                            en cuestión. En el periodo de pandemia, ademas, los países son coloreados en función de los
+                            casos de COVID-19 en el periodo seleccionado.
+                        </span>
+                    </div>
+                    <div class="relative">
+                        <div id="map-exports" style="height: 70vh" class="w-full mt-6 mb-6"></div>
+                        <div class="w-6/12 sm:w-5/12 md:w-4/12 lg:w-3/12 xl:w-2/12 text-sm absolute bottom-16 right-6 bg-gray-50 rounded-lg p-3 w-2/12 shadow-lg">
+                            <h4 class="font-medium mb-1">Casos Covid</h4>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(0, 0, 0, 0)"></span>0 - 5 000
+                            </div>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(255, 237, 160, 0.8)"></span>5 001 - 100 000
+                            </div>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(254, 178, 76, 0.8)"></span>100 001 - 250 000
+                            </div>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(252, 78, 42, 0.8)"></span>250 001 - 500 000
+                            </div>
+                            <div><span class="legend-key border border-black"
+                                       style="background-color: rgba(128, 0, 38, 0.7)"></span>500 000+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="apartado_h3">Comparativa Importaciones / Exportaciones</h3>
+                <p class="mt-4">
+                    A continuación, presentamos una comparativa de las importaciones y exportaciones para el conjunto de
+                    los productos clasificados como verduras y frutas. Este análisis es posible gracias a los datos
+                    proporcionados
+                    por Eurostat, extendiendo aquellos proporcionados por el reto.
+                </p>
+                <p class="mt-4">
+                    Para el análisis se ha tomado una ventana temporal de 4 años, desde 2017 a 2020. A grandes rasgos
+                    podemos ver cómo las exportaciones son superiores en todo momento a las importaciones, así como
+                    los niveles ofrecidos por las frutas son mayores a los de las verduras, de media un 40% en materia
+                    de exportación, y un 130% en materia de importación. Otro factor importante es la relación entre
+                    exportación e importación. La exportación de verduras es 6.5 veces superior a su importación,
+                    mientras que la exportación de frutas es alrededor de 4 veces superior. En términos globales,
+                    los productos hortofrutícolas son exportados 4.7 veces más que importados.
+                </p>
+                <p class="mt-4">
+                    En cuanto en lo referente a la crisis sanitaria, vemos que el impacto en materia de importaciones ha
+                    sido minúsculo, viendo como la tendencia para los meses del periodo de excepción presentan
+                    comportamientos ya observados en años anteriores. Aun así, en mayo de 2020 se produce un pico máximo
+                    en cuanto a importaciones de frutas,
+                    superando los años anteriores por un 8%. En lo referente
+                    a las exportaciones, vemos que en 2020 el volumen general de estas es muy similar al de años
+                    previos,
+                    sobre todo en lo referente a la exportación de verduras, mientras que la exportación de frutas
+                    es ligeramente superior a años previos, llegando a su máximo en mayo, un 10% superior a 2019.
+
+                    Con todo ello vemos como a nivel general, estudiando el conjunto de productos hortofrutícolas,
+                    la crisis sanitaria ha sido atajada de forma correcta por España en cuanto a materia
+                    de importación y exportación de estos productos. Y es que hablar del sector hortofrutícola es
+                    hablar de fortaleza, y más aún este año, en el que el virus Covid-19 ha puesto en jaque la salud y
+                    la economía a nivel mundial. En este momento único, histórico y desconocido ha sacado
+                    músculo y ha demostrado su gran capacidad de servicio, adaptación y calidad. En marzo de 2020,
+                    cuando
+                    el Gobierno decretó el estado de alarma, el sector no paró, continuó suministrando frutas y
+                    verduras,
+                    tanto al mercado nacional como a los europeos, sin desabastecimientos, y asumiendo mayores costes en
+                    términos productivos y logísticos.
+                </p>
+
+                <p class="mt-4">
+                    Se produce un <b>nuevo récord en exportación</b> en la venta de fruta y hortalizas, que continúa
+                    su positiva trayectoria en el exterior, y más que nunca en este nuevo contexto marcado por la
+                    pandemia. En los primeros seis meses de este año el valor de las exportaciones aumentó cerca de
+                    un 10%, gracias a las fuertes cotizaciones de algunos productos, ya que el volumen comercializado
+                    cayó un 3.5% en términos generales.
+                </p>
+
+                <div class="hidden lg:flex lg:flex-wrap mt-6">
+                    <div class="w-full mt-6 mb-6">
+                        <p class="text-xl pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Españolas
+                        </p>
+                        <div class="p-6"> <!-- bg-white -->
+                            <canvas id="exportacion_importacion_nacional_meses" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex flex-wrap lg:hidden mt-7 text-gray-600 italic">
+                    <div class="w-full mt-6 mb-6">
+                        <p>
+                            (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                            se necesita una pantalla mayor. Sentimos las molestias.)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+{% endblock %}
+
+{% block js_imports %}
+
+    <!-- MapBox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.1.1/mapbox-gl.min.css"/>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+
+    <!-- Mi mapa importaciones exportaciones -->
+    <script src="static/js/import_export_map.js"></script>
+    <script src="static/js/config_productos.js"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            let nav_actual = $(".comercio_nav_item");
+            active_current_nav(nav_actual);
+
+            $.getJSON('../../static/data/graphs/comercio.json', function (data) {
+
+                /* -- Exportación e Importación Española -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional_meses")
+                const exportacion_importacion = data["frutas_hortalizas_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 20000000,
+                        max: 1200000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"] = marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+
+        });
+
+
+    </script>
+
+{% endblock %}

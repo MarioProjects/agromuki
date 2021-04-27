@@ -1,0 +1,216 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "frutas/base_fruta_page.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block nombre_fruta_titulo %}Sandía{% endblock %}
+{% block nombre_fruta %}Sandía{% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block info_fruta %}
+
+
+    <div class="flex flex-wrap justify-between">
+        <div class="w-full">
+
+            <h3 class="apartado_h3">Información de la Sandía</h3>
+            <p class="mt-4">
+                La sandía es un fruto que proviene de una planta trepadora, con tallos ásperos y peludos,
+                provistos de zarcillos y hojas con cinco lóbulos. Es redonda, muy grande, pesa unos 4 kg de media,
+                de color verde, a veces con diferentes tonos de verde. Tiene su origen en el desierto de Kalahari,
+                en el continente africano, donde aún hoy en día crece de forma silvestre.
+                No obstante, existen evidencias arqueológicas de que se cultivaba en Egipto 3 000 a.C.,
+                donde se expandió en las fértiles márgenes del río Nilo. Desde aquí, pasó a los países mediterráneos,
+                Italia, Grecia o España.
+            </p>
+
+            <img
+                    class="imagen_producto"
+                    src="static/images/frutas/sandia/cortada_res_min.jpg"
+                    alt="Foto Sandías"
+            >
+
+            <p class="mt-4">
+                Se tata de una de las frutas mas extendidas en España, que junto a la fresa y el melón suponen casi
+                un 40% de la producción total de fruta dulce aunque se clasifiquen entre las hortalizas muchas veces.
+                En 2019, la producción de sandía se recuperó (un 10.8% más), después de haber caído en el año 2018
+                drásticamente, y su consumo siguió mejorando en 2020.
+            </p>
+
+            <h3 class="apartado_h3">Efectos de la COVID-19</h3>
+            <p>
+                Para analizar los efecto de la COVID-19 tomaremos los datos que nos facilita el Ministerio de Agricultura,
+                Pesca y Alimentación (MAPA), que nos permiten generar las gráficas para estudiar el
+                <b>Volumen Consumo Nacional Sandía</b> y la <b>Penetración Nacional Sandía</b>
+                en las que vemos la cantidad en miles de kilogramos vendidos en cada mes durante los años 2018, 2019
+                y 2020, así como la acogida de la sandía en los hogares españoles, respectivamente.
+
+
+                Por una parte, analizando el volumen de consumo nacional de la sandía vemos que esta fruta, al igual
+                que muchas otras, sufre variaciones dependiendo de la temporada en la que nos encontremos.
+                Los años 2018 y 2019 presentan datos muy similares en cuanto a miles de kg vendidos de esta fruta,
+                observando un ligero aumento en 2019.
+                Si analizamos el año 2020 vemos que el comportamiento sigue siendo muy similar y siguiendo con la
+                tónica del año anterior, se vuelve a producir una subida, de hasta un 21% en el mes más importante
+                para este producto, julio. Si buscamos este efecto en la penetración de la sandía en el hogar
+                español, vemos que no se corresponde y se vuelve a obtener valores típicos de 2019. Con ello, alegamos
+                que la subida en el volumen de consumo de la sandía viene dado por el empobrecimiento de la población
+                a lo largo de la crisis sanitaria, que, aun penetrando en el mismo número de familias, hace que estas
+                opte por reducir la variedad de productos consumidos y decantarse mas por aquellos productos más
+                baratos, como es el caso de la sandía (<a class="link_web"
+                                                          href="https://www.laregion.es/articulo/la-revista/sandia-fruta-mas-jugosa-y-barata-verano/20150806131118560059.html#:~:text=Pero%20la%20verdad%20es%20que,c%C3%A9ntimos%20de%20euro%20por%20kilo."
+                                                          target="_blank">La Región</a>).
+            </p>
+
+            <div class="hidden md:flex flex flex-wrap mt-6 clear-both">
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Volumen Consumo Nacional Sandía
+                    </p>
+                    <div class="p-6"> <!-- bg-white  -->
+                        <canvas id="volumen_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div class="w-full xl:w-1/2 mt-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Penetración Nacional Sandía
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="penetracion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-6 lg:mt-3">
+                Con lo correspondiente a las <b>importaciones y exportaciones</b> realizadas en España durante el
+                periodo comprendido entre enero de 2017 y diciembre de 2020, observamos varios patrones.
+
+                Tomando los datos proporcionados por Eurostat, con la información referente a las
+                importaciones y exportaciones en el periodo mencionado donde España interviene como socio,
+                analizando la cantidad de producto en valor monetario, observamos que las exportaciones se mantienen
+                generalmente por encima de las importaciones, de forma significativa en los meses de principal
+                consumo de este producto hortofrutícola.
+
+                Centrándonos en los niveles obtenidos durante el periodo de la pandemia,
+                vemos que la tendencia en los meses del <b>periodo de excepción</b>, como era de esperar y sucede
+                en otros productos cuya temporada no coinciden con el comienzo de la pandemia, es la normal,
+                sin datos a destacar. Conforme se adentra la temporada de la sandía, vemos como las <b>importaciones
+                se comportan exactamente igual que en 2018</b>, con valores ligeramente superiores a los de 2019,
+                mientras que las <b>exportaciones si que presentan un variación mayor</b>. Con ello, en el mes de abril,
+                comienzo del periodo hasta septiembre donde la sandía es exportada, observamos un aumento prometedor
+                de hasta un 50% con respecto a los años anteriores, pero que desafortunadamente no llega a plasmarse
+                en el maximo local del año 2020, mes de mayo, ya que se estanca la exportación en valores típicos de
+                2018 y por lo tanto produciendo una recession en materia de exportación del 10% con respecto 2019.
+
+                Al igual que con el melón, podemos atribuir en cierta medida este efecto negativo en materia de
+                exportación a la falta de producción dada por la falta de turismo y otros efectos colaterales de la
+                pandemia, pero que aún asi no causan grandes estragos en este productos hortofrutícola, presentando
+                valores dentro del rango esperado.
+            </p>
+
+            <div class="hidden lg:flex lg:flex-wrap mt-6">
+                <div class="w-full mt-6 mb-6">
+                    <p class="text-xl pb-3 flex items-center">
+                        <i class="fas fa-check mr-3"></i> Importaciones y Exportaciones Sandía
+                    </p>
+                    <div class="p-6"> <!-- bg-white -->
+                        <canvas id="exportacion_importacion_nacional" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex lg:hidden flex flex-wrap mt-7 text-gray-600 italic">
+                <div class="w-full mt-6 mb-6">
+                    <p>
+                        (Para poder ver todas las gráficas sobre el análisis de los productos hortofrutícolas
+                        se necesita una pantalla mayor. Sentimos las molestias.)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block additional_js %}
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('../../static/data/graphs/sandia.json', function (data) {
+                /* -- Volumen Consumo Nacional Sandía -- */
+                const volumen_nacional_canvas = document.getElementById("volumen_nacional");
+                const volumen_producto_nacionales = data["volumen_sandia_nacionales"];
+                volumen_producto_nacionales["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' miles de kg';
+                        }
+                    }
+                }
+                let line_chart_volumen_nacional = new Chart(volumen_nacional_canvas, volumen_producto_nacionales);
+
+                /* -- Penetración Nacional Sandía -- */
+                const penetracion_nacional_canvas = document.getElementById("penetracion_nacional");
+                const penetracion_producto_nacional = data["penetracion_sandia_nacionales"];
+                penetracion_producto_nacional["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return tooltipItems[0].label + ' - ' + data.datasets[tooltipItems[0].datasetIndex].label;
+                        },
+                        label: function (tooltipItems, data) {
+                            return tooltipItems.value + '%';
+                        }
+                    }
+                }
+                let line_chart_penetracion_nacional = new Chart(
+                    penetracion_nacional_canvas, penetracion_producto_nacional
+                );
+
+                /* -- Exportación e Importación Sandía -- */
+                const expimp_es_canvas = document.getElementById("exportacion_importacion_nacional")
+                const exportacion_importacion = data["sandia_exportacion_importacion"]
+                exportacion_importacion["options"]["tooltips"] = {
+                    enabled: true,
+                    mode: 'single',
+                    callbacks: {
+                        label: function (tooltipItems, data) {
+                            return display_numero(tooltipItems.value) + ' €';
+                        }
+                    }
+                }
+                exportacion_importacion["options"]["scales"]["yAxes"] = [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Cantidad de producto en valor monetario (€)"
+                    },
+                    position: "left",
+                    ticks: {
+                        min: 0,
+                        max: 130000000,
+                        callback: function (label, index, labels) {
+                            return label / 1000000 + 'M€';
+                        }
+                    }
+                }];
+                exportacion_importacion["options"] ["annotation"]= marca_inicio_covid;
+                let line_chart_exportacion_importacion = new Chart(
+                    expimp_es_canvas, exportacion_importacion
+                );
+
+            });
+        });
+
+    </script>
+
+{% endblock %}

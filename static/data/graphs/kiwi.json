@@ -1,0 +1,127 @@
+{
+    "volumen_kiwi_nacionales":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            "datasets": [
+                {
+                    "label": "2018",
+                    "data": [11896.95, 10840.21, 10792.71, 11191.36, 10863.14, 9604.45, 8592.3, 8124.04, 8710.31, 11382.52, 13404.4, 12206.34],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2019",
+                    "data": [11586.83, 10914.48, 12224.85, 10978.44, 10649.72, 9104.93, 8187.01, 7258.89, 8352.27, 10965.0, 12250.8, 11289.49],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2020",
+                    "data": [12280.62, 13322.3, 13322.0, 15285.96, 12920.41, 9791.23, 9410.67, 7943.37, 8909.03, 12491.2, 12253.15],
+                    "borderColor": "rgba(60, 186, 159, 0.7)",
+                    "backgroundColor": "rgba(60, 186, 159, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Volumen (miles de kg)"
+                    }
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "penetracion_kiwi_nacionales":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            "datasets": [
+                {
+                    "label": "2018",
+                    "data": [36.68, 37.57, 36.71, 36.09, 36.47, 32.09, 29.01, 26.82, 30.31, 35.01, 36.82, 35.08],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2019",
+                    "data": [38.61, 37.86, 38.84, 37.38, 38.01, 31.52, 28.32, 26.16, 30.28, 35.61, 36.98, 36.73],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "2020",
+                    "data": [40.2, 38.46, 40.21, 44.21, 40.36, 32.77],
+                    "borderColor": "rgba(60, 186, 159, 0.7)",
+                    "backgroundColor": "rgba(60, 186, 159, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "yAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Penetración (%)"
+                    }
+                }],
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Mes"
+                    }
+                }]
+            }
+        }
+    },
+
+    "kiwi_exportacion_importacion":{
+        "type": "line",
+        "data": {
+            "labels": ["Enero - 2017", "Febrero - 2017", "Marzo - 2017", "Abril - 2017", "Mayo - 2017", "Junio - 2017", "Julio - 2017", "Agosto - 2017", "Septiembre - 2017", "Octubre - 2017", "Noviembre - 2017", "Diciembre - 2017", "Enero - 2018", "Febrero - 2018", "Marzo - 2018", "Abril - 2018", "Mayo - 2018", "Junio - 2018", "Julio - 2018", "Agosto - 2018", "Septiembre - 2018", "Octubre - 2018", "Noviembre - 2018", "Diciembre - 2018", "Enero - 2019", "Febrero - 2019", "Marzo - 2019", "Abril - 2019", "Mayo - 2019", "Junio - 2019", "Julio - 2019", "Agosto - 2019", "Septiembre - 2019", "Octubre - 2019", "Noviembre - 2019", "Diciembre - 2019", "Enero - 2020", "Febrero - 2020", "Marzo - 2020", "Abril - 2020", "Mayo - 2020", "Junio - 2020", "Julio - 2020", "Agosto - 2020", "Septiembre - 2020", "Octubre - 2020", "Noviembre - 2020", "Diciembre - 2020"],
+            "datasets": [
+                {
+                    "label": "Exportaciones",
+                    "data": [1352002, 1574626, 1218532, 986598, 1234468, 1856054, 2533405, 3445541, 3763591, 3833509, 2213092, 2533607, 2434733, 2071387, 1904446, 1951819, 2344554, 1679275, 1697208, 1976928, 2163678, 3110305, 2203806, 1696419, 2261633, 1846983, 1561646, 1481486, 2144121, 1994536, 2215362, 3115810, 2875055, 3338330, 3984639, 2803486, 2698290, 1917753, 1560298, 2118818, 6748026, 5448468, 6123603, 2973367, 3761897, 4759341, 5047773, 4351195],
+                    "borderColor": "rgba(62, 149, 205, 0.7)",
+                    "backgroundColor": "rgba(62, 149, 205, 1)",
+                    "fill": false
+                },
+                {
+                    "label": "Importaciones",
+                    "data": [10212182, 9681105, 15675051, 11586998, 27352802, 20679889, 23793268, 16193312, 22427252, 26946575, 19413645, 15547932, 11952334, 12787417, 16394163, 14885497, 28205269, 21503833, 13572750, 16534910, 13851074, 20200007, 13662566, 8828060, 13504981, 12095500, 14471986, 11232727, 27646137, 18393689, 15623321, 18579751, 15593684, 19963569, 12138186, 12336118, 15069901, 11654822, 15400959, 13591048, 41383817, 24672982, 21138242, 20622757, 25513370, 16856214, 16873218, 11105119],
+                    "borderColor": "rgba(142, 94, 162, 0.7)",
+                    "backgroundColor": "rgba(142, 94, 162, 1)",
+                    "fill": false
+                }
+            ]
+        },
+        "options": {
+            "scales": {
+                "xAxes": [{
+                    "scaleLabel": {
+                        "display": true,
+                        "labelString": "Fecha"
+                    }
+                }]
+            }
+        }
+    }
+
+}

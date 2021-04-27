@@ -1,0 +1,295 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %} AgroAnalysis - Metodología {% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <!--
+        Una breve descripción (en formato presentación, pdf, html, máximo 5 páginas con un máximo de 3 imágenes),
+        donde se expondrá el proceso y la metodología seguida, las técnicas aplicadas y los resultados obtenidos,
+        o si se han incorporado otras fuentes, cuáles son y para qué, y qué mejoras futuras abordaríais.
+    -->
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">Descripción del Proyecto</h1>
+
+            <div class="texted-block mt-6">
+
+                <h3 class="apartado_h3">Metodología del Análisis de Datos</h3>
+
+                <p class="mt-4">
+                    Para realiza el análisis de los productos hortofrutícolas utilizados en el proyecto se ha utilizado
+                    el lenguaje de programación
+                    <a class="link_web" href="https://www.python.org/" target="_blank" title="Python">Python</a>.
+                    Este cuenta con un amplio soporte en la actualidad y tiene ciertas bibliotecas para la manipulación
+                    y análisis de datos que nos han hecho decantarnos por él. Así, proporcionadas las bases de datos
+                    con información variada de los productos hortofrutícolas en periodos de pandemia y anteriores,
+                    utilizamos la biblioteca
+                    <a href="https://pandas.pydata.org/" title="Pandas" target="_blank" class="link_web">Pandas</a>,
+                    una biblioteca de software escrita como extensión de
+                    <a href="https://numpy.org/" title="Numpy" target="_blank" class="link_web">NumPy</a>
+                    para manipulación y análisis de datos. Además, nos valdremos de
+                    <i>
+                        <a href="https://jupyter.org/" title="Jupyter" target="_blank" class="link_web">
+                            Jupyter Notebook
+                        </a>
+                    </i>
+                    para como herramienta donde podemos crear en tiempo real código y evaluarlo paso a paso.
+                </p>
+
+                <img
+                        class="imagen_producto"
+                        src="static/images/otros/pantalla_res_min.jpg"
+                        alt="Foto Pantallazo Ordenador"
+                >
+
+                <p class="mt-4">
+                    Así pues, con esta somos capaces de generar los siguientes <i>scripts</i> (los nombres son enlaces
+                    hacía los archivos donde se pueden consultar para más detalles, pues estos han sido debidamente
+                    comentados para facilitar su comprensión):
+                </p>
+                <ul class="list-none">
+                    <li class="mt-2">
+                        <a href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/get_volumen_penetracion.py"
+                           target="_blank" title="Enlace a Gitea"
+                           class="texto_archivo"><b>get_volumen_penetracion.py</b></a>
+                        Útil para obtener de forma sencilla y rápida la información de un producto en materia de
+                        volumen a nivel nacional y penetración de dicho producto en el hogar español durante el
+                        periodo de tiempo comprendido de 2018 a 2020, por meses. Con él se han generado las graficas
+                        para el análisis individual de diversos productos hortofrutícolas, así como sus gráficas.
+                    </li>
+                    <li class="mt-2">
+                        <a href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/importaciones_exportaciones_producto.py"
+                           target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>importaciones_exportaciones_producto.py</b></a>
+                        Mediante este <i>script</i>, dado un producto que deseemos obtendremos los valores
+                        de importación y exportación de España para dicho producto en el periodo comprendido
+                        desde 2017 a 2020. Con él ha sido posible generar las gráficas y analizar de forma individual
+                        los productos hortofrutícolas presentes en este proyecto.
+                    </li>
+                    <li class="mt-2">
+                        <a href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/importaciones_exportaciones_generales.py"
+                           target="_blank" title="Enlace a Gitea" class="texto_archivo">
+                            <b>importaciones_exportaciones_generales.py</b>
+                        </a>
+                        Con este <i>script</i> extraemos, de forma general, los valores obtenidos mensualmente
+                        para las frutas, hortalizas y productos hortofrutícolas en su conjunto en materia de
+                        importaciones y exportaciones realizadas por España en el periodo comprendido entre
+                        2017 hasta 2020. Así, podemos analizar también de forma general el efecto de la COVID-19sobre
+                        este sector.
+                    </li>
+                    <li class="mt-2">
+                        <a href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/mapas.ipynb"
+                           target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>mapas.ipynb</b></a>
+                        En este <i>Notebook</i> utilizamos datos provistos por
+                        <a href="https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=DS-018995&lang=en/"
+                           title="Eurostat" target="_blank" class="link_web">Eurostat</a> y <a
+                            href="https://ourworldindata.org/coronavirus-source-data" target="_blank" class="link_web">Our
+                        World in Data</a> para analizar en términos mas
+                        generales el comportamiento del mercado español en términos de
+                        materia de importación y exportación. Así, somos capaces de generar mapas (página de
+                        <a href="/conclusiones" class="underline">Conclusiones</a>) en los que mostramos las
+                        importaciones y exportaciones españolas, a la vez que mostramos el impacto de la COVID-19 en
+                        cada región.
+                    </li>
+                    <li class="mt-2">
+                        <a href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/prevision.py"
+                           target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>prevision.py</b></a>
+                        Utilizando este <i>script</i> entrenaremos diferentes redes neuronales para realizar
+                        la previsión de los valores esperados en materia de importación y exportación en
+                        España durante la etapa de la COVID-19, expuesto en la sección de
+                        <a href="/prevision" class="underline">Previsión</a>. Así, somos capaces de analizar
+                        el impacto de la crisis sanitaria en el mercado hortofrutícola español de forma ciertamente
+                        objetiva.
+                    </li>
+                </ul>
+
+                <h3 class="apartado_h3">Fuentes Adicionales</h3>
+                <p class="mt-4">
+                    Los datos proporcionados en el evento Cajamar UniversityHack 2021 para el reto que tratamos,
+                    <a href="https://kutt.it/XOg78Q" title="Cajamar 2021 Agro" target="_blank" class="link_web">Cajamar
+                        Agro Analysis</a>,
+                    han sido de gran utilidad para construir ciertas partes de la aplicación de análisis planteado,
+                    pero aun así, como se nos aconsejaba, hemos utilizado fuentes de datos adicionales para poder
+                    analizar de una forma más completa los efectos de la crisis sanitaria en el mercado hortofrutícola
+                    español. Para ello hemos conseguido dos tipos de datos de gran valía: <i>Datasets</i> e Informes.
+                    Se puede acceder al <span class="texto_archivo">archivo</span>haciendo clic en su nombre.
+                </p>
+
+                <p class="mt-4">
+                    - <a href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/fronteras"
+                         target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Dataset: Eurostat Fronteras</b></a>
+                    Información geográfica sobre la delimitación de las fronteras
+                    de aquellos países con los que España ha mantenido flujo de importación y/o exportación.
+                    Esta información es de gran ayuda ya que nos permite dibujar en los mapas, junto al dataset 5
+                    proporcionado en el reto con la información referente a los contagios y muertes producidos por el
+                    virus, presentar de forma visual cual ha sido el impacto en cada región de la COVID-19. Para ello,
+                    hemos descargado los datos accesibles desde
+                    <a href="https://kutt.it/cnx7A7" title="Eurostat Regiones" target="_blank" class="link_web">esta
+                        página</a>,
+                    utilizando los datos <i>'Countries 2020 - 1:20 Million'</i>, que nos proporciona información de las
+                    fronteras con una precisión de 20 metros, margen de error bajo que supone menos puntos en el mapa
+                    que
+                    cargar que otras versiones con mayor precisión.
+                </p>
+
+                <p class="mt-4">
+                    - <a
+                        href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/fepex_importaciones_exportaciones"
+                        target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Dataset: Fepex Importaciones y
+                    Exportaciones Frutas y Verduras</b></a>
+                    Detalle de producto y valor mensual de importaciones y exportaciones desde el año 2016 hasta el
+                    año 2020 de las frutas y verduras en España. Información detallada por producto. En cuanto a la
+                    información por país, está correctamente, en formato anual.
+                </p>
+
+                <p class="mt-4">
+                    - <a
+                        href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/eurostat_importaciones_exportaciones"
+                        target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Dataset: Eurostat Importaciones
+                    y Exportaciones Frutas y Verduras</b></a>
+                    El problema con el dataset anterior era que no disponíamos de la información de importación
+                    y exportación mensual de cada país por categoría: Verduras y Frutas. Este dataset
+                    nos proporciona esta información desde enero de 2017. Dicho dataset es generado mediante la
+                    <a href="https://ec.europa.eu/eurostat/data/database"
+                       title="Eurostat Importaciones Exportaciones Detallado" target="_blank"
+                       class="link_web">herramienta</a>
+                    que nos proporciona Eurostat.
+                </p>
+
+                <p class="mt-4">
+                    - <a
+                        href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/owid/covid-data.csv"
+                        target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Dataset: COVID-19</b></a>
+                    Para la elaboración de los mapas de importaciones y exportaciones relacionadas con España, presentes
+                    en el apartado de <a href="/comercio" class="underline">Comercio exterior</a>, se ha querido añadir
+                    información referente al avance de la COVID-19
+                    en cada región. Para ello, se nos proporcionaba un dataset con dicha información, pero este no
+                    contaba
+                    con los datos de diciembre de 2020. Así, se ha descargado dicha información del sitio
+                    <a href="https://ourworldindata.org/coronavirus-source-data" target="_blank" class="link_web">Our
+                        World
+                        in Data</a>,
+                    que cuenta con los datos actualizados gracias a la Universidad Johns Hopkins.
+                </p>
+
+
+                <p class="mt-4">
+                    - <a
+                        href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/informes/AEE_2020_web.pdf"
+                        target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Informe: Alimentación en España
+                    2020 - MERCASA.</b></a> Se ha utilizado el informe de Alimentación
+                    en España durante el año 2020 para extraer información y datos acerca de las diferentes verduras
+                    y frutas analizadas en esta página. Ha sido un material de gran ayuda.
+                </p>
+                <p class="mt-4">
+                    - <a
+                        href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/informes/informecredafrutasyhortalizas_tcm30-540076.pdf"
+                        target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Informe: Ministerio de
+                    Agricultura, Pesca y Alimentación</b></a> El Ministerio de Agricultura,
+                    Pesca y Alimentación (MAPA) es el departamento ministerial del Gobierno de España competente
+                    para la propuesta y ejecución de la política del Gobierno en materia de recursos agrícolas,
+                    ganaderos y pesqueros, de industria agroalimentaria, de desarrollo rural y de alimentación.
+                </p>
+
+                <p class="mt-4">
+                    - <a
+                        href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/informes/Exportaci%c3%b3n%20hortofrut%c3%adcola.pdf"
+                        target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Informe: Alimarket</b></a>
+                    Empresa líder en generación de contenidos de información económico-sectorial
+                    en España. Obtención de datos de su página web
+                    <a class="link_web" href="https://www.alimarket.es/" target="_blank">alimarket.es</a>
+                    referentes a importaciones y exportaciones y efectos del COVID.
+                </p>
+                <p class="mt-4">
+                    - <a
+                        href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/informes/DYC163_100px_Huercasa.pdf"
+                        target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Informe: Huercasa</b></a> Grupo
+                    de empresas en creciente expansión dedicadas a la elaboración de productos vegetales de quinta Gama.
+                </p>
+
+                <p class="mt-4">
+                    - <a
+                        href="https://gitea.maparla.es/maparla/agromuki/src/branch/master/data/informes/caixa_agroalimentacion_2020.pdf"
+                        target="_blank" title="Enlace a Gitea" class="texto_archivo"><b>Informe: CaixaBank Research</b></a>
+                    Informe del sector
+                    Agroalimentario: Resiliencia y crecimiento del sector durante la pandemia.
+                </p>
+
+                <p class="mt-4">
+                    - <a href="http://www.hortoinfo.es" target="_blank" title="Enlace web" class="texto_archivo"><b>Informe:
+                    Hortoinfo - Euroestacom</b></a> Se han consultado varias noticias
+                    con información procedente del servicio estadístico Estacom.
+                </p>
+                <p class="mt-4">
+                    - <a href="https://www.fepex.es/que-es-fepex" target="_blank" title="Enlace web"
+                         class="texto_archivo"><b>Informe: Fepex</b></a> Federación Española de Asociaciones de
+                    Productores
+                    Exportadores de Frutas,
+                    Hortalizas, Flores y Plantas Vivas. Obtención de datos referentes a importaciones y exportaciones.
+                </p>
+                <p class="mt-4">
+                    - <a href="https://agroinformacion.com/" target="_blank" title="Enlace web"
+                         class="texto_archivo"><b>Informe:
+                    Agroinformación</b></a> Se han consultado información referente a diferentes productos
+                    hortofrutícolas.
+                </p>
+                <p class="mt-4">
+                    - <a href="https://www.diariosur.es/" target="_blank" title="Enlace web" class="texto_archivo"><b>Informe:
+                    DiarioSUR</b></a> Se han consultado información referente a la patata.
+                </p>
+                <p class="mt-4">
+                    - <a href="http://www.dogv.gva.es/es" target="_blank" title="Enlace web" class="texto_archivo"><b>Informe:
+                    Generalitat Valenciana (Dogv)</b></a> Se han consultado información referente a las medidas
+                    tomadas en diferentes épocas del año.
+                </p>
+                <p class="mt-4">
+                    - <a href="https://cincodias.elpais.com/" target="_blank" title="Enlace web"
+                         class="texto_archivo"><b>Noticias:
+                    Diario Cinco Dias</b></a> Se han consultado noticias referentes a la crisis sanitaria de su sitio
+                    web.
+                </p>
+
+
+                <h3 class="apartado_h3">Mejoras Futuras</h3>
+                <p class="mt-4">
+                    Como propuestas de mejora existen, varias líneas de desarrollo que no han sido implementadas por
+                    falta de tiempo. Así, las principales serían:
+                </p>
+
+                <p class="mt-4">
+                    <b>Testimonios</b>. Sería interesante visitar comercios locales y mercados que traten con productos
+                    hortofrutícolas y realizar un video en el que cuenten su experiencia y como han vivido ellos
+                    la crisis sanitaria.
+                </p>
+
+                <p class="mt-4">
+                    <b>Más productos</b>. No han sido analizados todos los productos hortofrutícolas detalladamente,
+                    si no una selección de los mas comunes en el mercado español debido a al gran variedad de estos.
+                    En esta linea, podríamos completar con mas productos las secciones de
+                    <a href="/frutas" class="underline">Frutas</a> y
+                    <a href="/verduras" class="underline">Verduras</a>.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+{% endblock %}
+
+{% block js_imports %}
+
+    <script>
+        $(document).ready(function () {
+            let nav_actual = $(".metodologia_nav_item");
+            active_current_nav(nav_actual);
+        });
+    </script>
+
+{% endblock %}

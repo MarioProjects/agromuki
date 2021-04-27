@@ -1,0 +1,139 @@
+<!-- Con este extend hacemos que el contenido de este html vaya donde este definida la secuencia -->
+<!-- block nombreEspecificado en el archivo referido (en este caso base.html) -->
+{% extends "base.html" %}
+
+<!-- Definimos el contenido de block title que es extendido de base.html -->
+{% block title %} AgroAnalysis - Referencias {% endblock %}
+
+<!-- Definimos el contenido de block content que es extendido de base.html -->
+{% block content %}
+
+    <div class="w-full overflow-x-hidden border-t flex flex-col">
+        <main class="w-full flex-grow p-6">
+            <h1 class="text-3xl text-black">Referencias</h1>
+
+            <div class="texted-block mt-6">
+
+                <h3 class="apartado_h3">Data Partner</h3>
+                <p class="mt-4">
+                    DATAGRI es uno de los mayores foros europeos para el impulso de la transformación digital
+                    en el sector agroalimentario. Innovar, divulgar, cooperar, y sorprender son los cuatro verbos
+                    de acción que definen la filosofía de esta iniciativa plural.</p>
+                <img
+                        class="imagen_producto"
+                        src="static/images/referencias/datagri_exposicion.jpg"
+                        alt="DATAGRI"
+                >
+
+                <p class="mt-4">
+                    Los mercados de alimentos perecederos como las frutas y las verduras (F&H) se caracterizan por su
+                    alta variabilidad inter- e intra-anual, y suelen caracterizarse por una tendencia
+                    marcadamente estacional. Esta volatilidad e impredecibilidad de los precios es en general
+                    contraproducente para la cadena alimentaria, y es especialmente crítica para los eslabones
+                    productores.
+                    Por tanto, entender la respuesta de los mercados en tiempos de pandemia,
+                    es fundamental para obtener un conocimiento más preciso y acertado de las dinámicas mercantiles.
+                </p>
+
+
+                <h3 class="apartado_h3">Datasets Proporcionados</h3>
+                <p class="mt-4">
+                    Se ha puesto a disposición cinco datasets con información del mercado de frutas y verduras en
+                    España así como con información internacional de la evolución de la COVID-19.
+                    Los ficheros contienen información desde Enero de 2018, para que puedas observar y comparar
+                    el comportamiento del mercado español de frutas y verduras de 2020 con el de los dos años previos.
+                </p>
+                <p class="mt-4">
+                    <b>Dataset 1.</b> El primer dataset dispone de dos tipos de información, de Enero de 2018 hasta
+                    Junio
+                    2020 tiene la información desagregada por CCAA de todos los productos. Sin embargo, de Julio 2020 a
+                    Noviembre 2020 solo dispone de la información para 24 productos a nivel nacional.
+                </p>
+                <p class="mt-4">
+                    <b>Dataset 2.</b> Dispone de los precios de productos agroalimentarios que publica el
+                    Observatorio de Precios de los Alimentos de la Junta de Andalucía.
+                </p>
+                <p class="mt-4">
+                    <b>Dataset 3.</b> MercaMadrid y MercaBarna son dos de los mercados mayoristas más representativos
+                    en España. El tercer dataset ofrece información sobre los precios y kilogramos comercializados
+                    semanalmente de diferentes frutas y verduras en sus instalaciones.
+                </p>
+                <p class="mt-4">
+                    <b>Dataset 4.</b> Todo lo acontecido a nivel mundial en los últimos meses afecta al sector
+                    agroalimentario global, pudiendo verse muy influenciado todo el comercio internacional
+                    de frutas y verduras. Esto afecta a su vez al mercado español, lo que hace que sea importante
+                    tener en cuenta datos de importaciones y exportaciones de España, pudiendo comparar periodos
+                    anteriores a 2020 con lo sucedido durante este año. El cuarto dataset contiene la serie histórica
+                    mensual de comercio exterior de España con el resto de países de Europa desde 2018 de diferentes
+                    frutas y verduras.
+                </p>
+                <p class="mt-4">
+                    <b>Dataset 5.</b> Estadísticas internacionales diarias de COVID-19 por país,
+                    desde enero de 2020 hasta noviembre de 2020.
+                </p>
+                <p class="mt-4">
+                    Para más información se puede acceder a la
+                    <a href="https://kutt.it/SSg6y3/" target="_blank" class="link_web">página del reto</a>.
+                    Por otra parte, se han utilizado datos adicionales, detallados en la sección
+                    <a href="/metodologia" class="underline">Metodología</a>.
+                </p>
+
+
+                <h3 class="apartado_h3">Licencias</h3>
+                <p class="mt-4">
+                    Todos los recursos informáticos utilizados en esta página web obedecen a una licencia de uso
+                    gratuito o uso gratuito bajo mención.
+                </p>
+                <p class="mt-4">
+                    <b>Iconos.</b> Algunos de los iconos utilizados han sido elaborados por <a
+                        href="https://www.freepik.com" title="Freepik" target="_blank" class="link_web">Freepik</a> de
+                    <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" class="link_web">www.flaticon.com</a>.
+                </p>
+                <p class="mt-4">
+                    <b>Imágenes.</b> Las imágenes utilizadas para cada hortaliza y fruta han sido extraídas de la página
+                    libre de derechos <a href="https://www.unsplash.com/" title="Unsplash" target="_blank">Unsplash</a>.
+                </p>
+                <p class="mt-4">
+                    <b>Desarrollo.</b> Para el desarrollo de la página se han utilizado diferentes tecnologías. Por una
+                    parte, para el análisis de los datos proporcionados se ha utilizado <a
+                        href="https://pandas.pydata.org/" title="Pandas" target="_blank" class="link_web">Pandas</a>,
+                    una biblioteca de software escrita como extensión de NumPy para manipulación y análisis de datos
+                    para el lenguaje de programación Python. Para la elaboración del sitio web se han utilizado
+                    tecnologías típicas conocidas como HTML, CSS y Javascript. Para agilizar el estilizado y dotar la
+                    página con un aspecto visual más atractivo se ha utilizado el <i>framework</i> <a
+                        href="https://tailwindcss.com/" title="Tailwind CSS" target="_blank" class="link_web">Tailwind
+                    CSS</a>, mientras que para la incorporación de gráficos y la manipulación de elementos del DOM de
+                    forma más sencilla se han utilizado <a href="https://www.chartjs.org/" title="ChartJs"
+                                                           target="_blank" class="link_web">Chart.js</a> y <a
+                        href="https://jquery.com/" title="JQuery" target="_blank" class="link_web">JQuery</a>,
+                    respectivamente. Para la animación de ciertos elementos como los botones de selección de frutas y
+                    verduras, se ha utilizado <a href="https://animate.style/" title="AnimateCSS" target="_blank"
+                                                 class="link_web">Animate.css</a>. Para finalizar, pero no menos
+                    importante, para manejar las peticiones a la página web y realizar ciertas peticiones para obtener
+                    diferentes datos se ha optado por <a href="https://fastapi.tiangolo.com/" title="FastAPI"
+                                                         target="_blank" class="link_web">FastAPI</a>.
+                    Por otra parte, para el análisis predictivo donde utilizamos redes neuronales para la predicción
+                    de los valores de importación y exportación durante el periodo de la COVID-19, se ha utilizado el
+                    framework de código abierto <a href="https://pytorch.org/" title="Pytorch"
+                                                         target="_blank" class="link_web">Pytorch</a>.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+{% endblock %}
+
+{% block js_imports %}
+
+    <script>
+        $(document).ready(function () {
+            let nav_actual = $(".referencias_nav_item");
+            active_current_nav(nav_actual);
+        });
+    </script>
+
+{% endblock %}

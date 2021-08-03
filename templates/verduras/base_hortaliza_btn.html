@@ -2,7 +2,7 @@
 {% macro icon_hortaliza(icon_path, icon_alt) -%}
   <img
       class="w-1/3"
-      src="{{ url_for('static', path=icon_path) }}"
+      src="{{ icon_path }}"
       alt="{{icon_alt}}"
   >
 {%- endmacro %}

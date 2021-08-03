@@ -66,12 +66,11 @@ npm run build
 
 #### Deployment
 
-Para desplegar la aplicación en tu servidor utilizando [nginx-proxy](https://github.com/nginx-proxy/nginx-proxy)
-primero debemos modificar en el fichero Dockerfile las apariciones del número 5000 por 80. Tras esto:
+Para desplegar la aplicación en tu servidor utilizando nginx-proxy:
 
 ```shell
 docker build -t agromuki-container .
-docker run -d -e VIRTUAL_HOST=agromuki.maparla.es --name agromuki agromuki-container
+docker run -d -p 8055:5000 --name agromuki agromuki-container
 ```
 
 
